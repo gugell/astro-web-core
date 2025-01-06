@@ -1,0 +1,19 @@
+metadata:
+  title:
+    default: IAUTI LABS
+    template: "%s — AstroWind"
+  description: "\U0001F680 Whether you’re starting from scratch, or levelling-up an existing product suite, we bring experience and pragmatism that moves the needle on real business goals."
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: IAUTI LABS
+    images:
+      - url: "~/assets/images/hero.png"
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle: "@onwidget"
+    site: "@onwidget"
+    cardType: summary_large_image

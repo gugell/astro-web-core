@@ -1,0 +1,10 @@
+---
+import { analyticsConfig } from '@utils/config';
+import { GoogleAnalytics } from '@astrolib/analytics';
+---
+
+{
+  analyticsConfig?.vendors?.googleAnalytics?.id ? (
+    <GoogleAnalytics id={String(analyticsConfig.vendors.googleAnalytics.id)} partytown={analyticsConfig?.vendors?.googleAnalytics?.partytown} />
+  ) : null
+}

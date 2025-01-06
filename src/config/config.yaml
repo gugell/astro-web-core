@@ -1,0 +1,12 @@
+site:
+  name: MobileHeads Austria
+  site: "https://iauti.tech"
+  base: "/"
+  trailingSlash: false
+
+  googleSiteVerificationId: null #aaa-bbb-ccc
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: "G-YX4KC3PNHB"

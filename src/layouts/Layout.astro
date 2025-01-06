@@ -1,11 +1,28 @@
+---
+import CommonMeta from "@components/common/CommonMeta.astro";
+import Metadata from "@components/common/Metadata.astro";
+import Favicons from "@components/Favicons.astro";
+
+import type { MetaData as MetaDataType } from '@/types';
+import { i18n } from "@utils/i18n";
+import Analytics from "@components/common/Analytics.astro";
+
+export interface Props {
+  metadata?: MetaDataType;
+}
+
+const { metadata = {} } = Astro.props;
+const { language, textDirection } = i18n;
+
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={language} dir={textDirection} >
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<CommonMeta />
+		<Favicons />
+		<Metadata {...metadata} />
+		<Analytics />
 	</head>
 	<body>
 		<slot />
