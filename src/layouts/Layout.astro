@@ -1,39 +1,65 @@
 ---
+import '@/assets/styles/tailwind.css';
 import CommonMeta from "@components/common/CommonMeta.astro";
 import Metadata from "@components/common/Metadata.astro";
 import Favicons from "@components/Favicons.astro";
 
-import type { MetaData as MetaDataType } from '@/types';
-import { i18n } from "@utils/i18n";
+import type { MetaData as MetaDataType } from "@/types";
+import { defaultLang, i18n, tr, languages } from "@utils/i18n";
 import Analytics from "@components/common/Analytics.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { getCurrentLang, getPathWithoutLang } from "@utils/navigation";
+import CustomStyles from "@components/common/CustomStyles.astro";
+import BasicScripts from '@components/common/BasicScripts.astro';
 
 export interface Props {
+  title: string;
   metadata?: MetaDataType;
 }
 
-const { metadata = {} } = Astro.props;
+const { metadata = {}, title } = Astro.props;
 const { language, textDirection } = i18n;
 
+const currentPath = Astro.url.pathname;
+const lang = getCurrentLang(currentPath, languages, defaultLang);
+const pathWithoutLang = getPathWithoutLang(currentPath);
+const t = tr[lang as keyof typeof tr];
 ---
 
 <!doctype html>
-<html lang={language} dir={textDirection} >
-	<head>
-		<CommonMeta />
-		<Favicons />
-		<Metadata {...metadata} />
-		<Analytics />
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang={language} dir={textDirection}>
+  <head>
+    <CommonMeta />
+    <Favicons />
+	<CustomStyles />
+    <Metadata {...metadata} title={title} />
+    <Analytics />
+  </head>
+  <body class="min-h-screen flex flex-col">
+	<Fragment slot="header">
+    <Header lang={lang} currentPath={pathWithoutLang} t={t} />
+	</Fragment>
+    <main class="flex-grow max-w-6xl mx-auto px-4 py-8 w-full">
+      <slot />
+	  <BasicScripts />
+	</main>
+
+    <Footer />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background: #f6f6f6;
+  }
+  body {
+    margin: 0;
+  }
 </style>

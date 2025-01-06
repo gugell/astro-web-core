@@ -1,0 +1,39 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getHomePermalink } from '@/utils/permalinks';
+import Button from '@components/ui/Button.astro';
+import { defaultLang, languages, tr } from '@utils/i18n';
+import { getCurrentLang } from '@utils/navigation';
+
+const title = `Error 404`;
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+  ];
+}
+
+const currentPath = Astro.url.pathname;
+const lang = getCurrentLang(currentPath, languages, defaultLang);
+const t = tr[lang as keyof typeof tr];
+---
+
+<Layout title={title}>
+  <section class="flex items-center h-full p-16">
+    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+      <div class="max-w-md text-center">
+        <h2 class="mb-8 font-bold text-9xl">
+          <span class="sr-only">Error</span>
+          <span class="text-primary">404</span>
+        </h2>
+        <p class="text-3xl font-semibold md:text-3xl"> {t['404.title']}</p>
+        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
+          {t['404.subtitle']}
+        </p>
+        <Button variant="primary"
+        text={t['404.cta']} class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark"
+         href={getHomePermalink()}  />
+      </div>
+    </div>
+  </section>
+</Layout>

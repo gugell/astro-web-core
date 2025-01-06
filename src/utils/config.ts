@@ -9,7 +9,13 @@ export interface SiteConfig {
   base?: string;
   trailingSlash?: boolean;
   googleSiteVerificationId?: string;
+  ui?: UIConfig;
 }
+
+export interface UIConfig {
+    theme: string;
+  }
+  
 
 export interface AnalyticsConfig {
     vendors: {

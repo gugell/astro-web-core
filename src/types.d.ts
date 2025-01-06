@@ -15,6 +15,13 @@ export interface MetaData {
   twitter?: MetaDataTwitter;
 }
 
+export interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+  icon?: string;
+}
+
 export interface MetaDataRobots {
   index?: boolean;
   follow?: boolean;
@@ -62,6 +69,12 @@ export interface Headline {
   subtitle?: string;
   tagline?: string;
   classes?: Record<string, string>;
+}
+
+export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' | 'classes'> {
+  content?: string;
+  actions?: string | CallToAction[];
+  image?: string | unknown;
 }
 
 interface Social {

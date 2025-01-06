@@ -1,0 +1,29 @@
+---
+import Button from '@components/ui/Button.astro';
+
+interface Props {
+  t: Record<string, string>;
+}
+
+const { t } = Astro.props;
+---
+<div class="max-w-3xl mx-auto">
+  <h1 class="text-4xl font-bold mb-8">{t['about.title']}</h1>
+  
+  <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+    <h2 class="text-2xl font-bold mb-4">Our Community</h2>
+    <p class="mb-6">MobileHeads Austria is a vibrant community of mobile developers, designers, and enthusiasts. We organize regular meetups, workshops, and events to foster knowledge sharing and networking within the Austrian mobile development scene.</p>
+    
+    <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+    <p class="mb-6">Our mission is to create a platform where mobile developers can connect, learn, and grow together. We believe in the power of community and knowledge sharing to advance the mobile development ecosystem in Austria.</p>
+    
+    <h2 class="text-2xl font-bold mb-4">Join Us</h2>
+    <p class="mb-6">Whether you're a seasoned developer or just starting your journey in mobile development, you're welcome to join our community!</p>
+    
+    <Button variant="primary"
+    text={t['about.ctaMeetup']} class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark"
+     target="_blank",
+     href="https://www.meetup.com/mobileheads-austria/"  />
+
+  </div>
+</div>

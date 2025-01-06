@@ -1,0 +1,78 @@
+---
+import { createLocalizedPath } from "../utils/navigation";
+import LanguagePicker from "./LanguagePicker.astro";
+import MobileMenu from "./MobileMenu.astro";
+
+interface Props {
+  lang: string;
+  currentPath: string;
+  t: Record<string, string>;
+  isSticky?: boolean;
+  isDark?: boolean;
+  isFullWidth?: boolean;
+}
+
+const { lang, currentPath, t, isSticky, isDark } = Astro.props;
+
+const navItems = [
+  { key: "nav.home", path: "" },
+  { key: "nav.blog", path: "blog" },
+  { key: "nav.cfp", path: "cfp" },
+  { key: "nav.about", path: "about" },
+];
+---
+
+<header
+  class:list={[
+    { sticky: isSticky, relative: !isSticky, dark: isDark },
+    "top-0 z-40 flex-none w-full border-b border-gray-50/0 transition-[opacity] ease-in-out",
+  ]}
+  {...isSticky ? { "data-aw-sticky-header": true } : {}}
+>
+<nav class="max-w-6xl mx-auto px-4 py-6">
+  <div class="flex justify-between items-center">
+    <a
+      href={createLocalizedPath(lang, "")}
+      class="text-gray-900 text-2xl font-bold hover:text-primary"
+    >
+      MobileHeads Austria
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center space-x-8">
+      <ul class="flex space-x-6">
+        {
+          navItems.map(({ key, path }) => (
+            <li>
+              <a
+                href={createLocalizedPath(lang, path)}
+                class="text-gray-900 dark:text-white hover:text-primary"
+              >
+                {t[key]}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <LanguagePicker currentLang={lang} currentPath={currentPath} />
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="menuButton" class="md:hidden text-gray-900">
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+</nav>
+</header>
+<MobileMenu lang={lang} t={t} currentPath={currentPath} />

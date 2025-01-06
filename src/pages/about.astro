@@ -1,9 +1,9 @@
 ---
 import { defaultLang, languages, tr } from '@utils/i18n';
-import Welcome from '@/components/Welcome.astro';
 import Layout from '@/layouts/Layout.astro';
 import { getCurrentLang } from '@utils/navigation';
-import HomePageComponent from '@components/widgets/HomePageComponent.astro';
+import Button from '@components/ui/Button.astro';
+import AboutComponent from '@components/widgets/AboutComponent.astro';
 
 export async function getStaticPaths() {
   return [
@@ -17,6 +17,6 @@ const lang = getCurrentLang(currentPath, languages, defaultLang);
 const t = tr[lang as keyof typeof tr];
 ---
 
-<Layout title={t['home.title']}>
-	<HomePageComponent />
+<Layout title={t['about.title']}>
+  <AboutComponent t={t}/>
 </Layout>
