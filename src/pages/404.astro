@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import { getHomePermalink } from '@/utils/permalinks';
 import Button from '@components/ui/Button.astro';
+import PageLayout from '@layouts/PageLayout.astro';
 import { defaultLang, languages, tr } from '@utils/i18n';
 import { getCurrentLang } from '@utils/navigation';
 
@@ -18,7 +19,7 @@ const lang = getCurrentLang(currentPath, languages, defaultLang);
 const t = tr[lang as keyof typeof tr];
 ---
 
-<Layout title={title}>
+<PageLayout title={title}>
   <section class="flex items-center h-full p-16">
     <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
       <div class="max-w-md text-center">
@@ -36,4 +37,4 @@ const t = tr[lang as keyof typeof tr];
       </div>
     </div>
   </section>
-</Layout>
+</PageLayout>

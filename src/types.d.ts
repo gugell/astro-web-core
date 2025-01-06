@@ -1,5 +1,4 @@
-import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
-import type { HTMLAttributes, ImageMetadata } from 'astro/types';
+import type { HTMLAttributes } from "astro/types";
 
 export interface MetaData {
   title?: string;
@@ -15,8 +14,40 @@ export interface MetaData {
   twitter?: MetaDataTwitter;
 }
 
+export interface Features extends Omit<Headline, "classes">, Widget {
+  image?: string | unknown;
+  video?: Video;
+  items?: Array<Item>;
+  columns?: number;
+  defaultIcon?: string;
+  callToAction1?: CallToAction;
+  callToAction2?: CallToAction;
+  isReversed?: boolean;
+  isBeforeContent?: boolean;
+  isAfterContent?: boolean;
+}
+
+export interface Faqs extends Omit<Headline, "classes">, Widget {
+  iconUp?: string;
+  iconDown?: string;
+  items?: Array<Item>;
+  columns?: number;
+}
+
+export interface ItemGrid {
+  items?: Array<Item>;
+  columns?: number;
+  defaultIcon?: string;
+  classes?: Record<string, string>;
+}
+
+export interface Stats extends Omit<Headline, "classes">, Widget {
+  stats?: Array<Stat>;
+}
+
 export interface Link {
   text?: string;
+  key?: string;
   href?: string;
   ariaLabel?: string;
   icon?: string;
@@ -71,7 +102,9 @@ export interface Headline {
   classes?: Record<string, string>;
 }
 
-export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' | 'classes'> {
+export interface Hero
+  extends Omit<Headline, "classes">,
+    Omit<Widget, "isDark" | "classes"> {
   content?: string;
   actions?: string | CallToAction[];
   image?: string | unknown;
@@ -83,7 +116,7 @@ interface Social {
 }
 
 export interface Stat {
-  amount?: number;
+  amount?: number | string;
   title?: string;
   icon?: string;
 }
@@ -108,16 +141,14 @@ export interface Input {
 export interface Textarea {
   label?: string;
   placeholder?: string;
-  rows?: number
+  rows?: number;
 }
 
 // COMPONENTS
 export interface CallToAction extends HTMLAttributes<a> {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'link';
+  variant?: "primary" | "secondary" | "tertiary" | "link";
   text?: string;
   icon?: string;
   classes?: Record<string, string>;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
 }
-
-

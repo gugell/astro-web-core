@@ -1,0 +1,18 @@
+---
+import HomePageComponent from "@components/widgets/HomePageComponent.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import { defaultLang, languages, tr } from "@utils/i18n";
+import { getCurrentLang } from "@utils/navigation";
+
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "de" } }];
+}
+
+const currentPath = Astro.url.pathname;
+const lang = getCurrentLang(currentPath, languages, defaultLang);
+const t = tr[lang as keyof typeof tr];
+---
+
+<PageLayout title={t["home.title"]}>
+  <HomePageComponent />
+</PageLayout>

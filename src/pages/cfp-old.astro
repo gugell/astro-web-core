@@ -1,9 +1,8 @@
 ---
-import { defaultLang, languages, tr } from '@utils/i18n';
-import Welcome from '@/components/Welcome.astro';
-import Layout from '@/layouts/Layout.astro';
+import CfpComponent from '@/components/widgets/CfpComponent.astro';
 import { getCurrentLang } from '@utils/navigation';
-import HomePageComponent from '@components/widgets/HomePageComponent.astro';
+import { defaultLang, languages, tr } from '@utils/i18n';
+import PageLayout from '@layouts/PageLayout.astro';
 
 export async function getStaticPaths() {
   return [
@@ -17,6 +16,6 @@ const lang = getCurrentLang(currentPath, languages, defaultLang);
 const t = tr[lang as keyof typeof tr];
 ---
 
-<Layout title={t['home.title']}>
-	<HomePageComponent />
-</Layout>
+<PageLayout title={t['cfp.title']}>
+  <CfpComponent t={t}/>
+</PageLayout>

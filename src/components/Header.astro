@@ -1,25 +1,27 @@
 ---
+import type { Link } from "@/types";
 import { createLocalizedPath } from "../utils/navigation";
 import LanguagePicker from "./LanguagePicker.astro";
 import MobileMenu from "./MobileMenu.astro";
+import ToggleTheme from "./ui/ToggleTheme.astro";
 
 interface Props {
   lang: string;
   currentPath: string;
   t: Record<string, string>;
+
+
   isSticky?: boolean;
+  showToggleTheme?: boolean;
   isDark?: boolean;
   isFullWidth?: boolean;
+
+  navItems: Link[];
+  links: Link[];
 }
 
-const { lang, currentPath, t, isSticky, isDark } = Astro.props;
+const { lang, currentPath, t, isSticky = false, isDark = false, showToggleTheme = true, navItems } = Astro.props;
 
-const navItems = [
-  { key: "nav.home", path: "" },
-  { key: "nav.blog", path: "blog" },
-  { key: "nav.cfp", path: "cfp" },
-  { key: "nav.about", path: "about" },
-];
 ---
 
 <header
@@ -42,19 +44,26 @@ const navItems = [
     <div class="hidden md:flex items-center space-x-8">
       <ul class="flex space-x-6">
         {
-          navItems.map(({ key, path }) => (
+          navItems && (navItems.map((item) => (
             <li>
               <a
-                href={createLocalizedPath(lang, path)}
-                class="text-gray-900 dark:text-white hover:text-primary"
+                href={createLocalizedPath(lang, item.href ?? "")}
+                class="text-gray-900 dark:text-red hover:text-primary"
               >
-                {t[key]}
+                {t[item.key as keyof typeof t]}
               </a>
             </li>
           ))
-        }
+        )}
       </ul>
-      <LanguagePicker currentLang={lang} currentPath={currentPath} />
+
+    <div class="items-center flex justify-between w-full md:w-auto">
+      <div class="flex mx-2">
+        {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
+        <div class="mx-4"><LanguagePicker currentLang={lang} currentPath={currentPath} /></div>
+      </div>
+    </div>
+
     </div>
 
     <!-- Mobile Menu Button -->
@@ -75,4 +84,4 @@ const navItems = [
   </div>
 </nav>
 </header>
-<MobileMenu lang={lang} t={t} currentPath={currentPath} />
+<MobileMenu lang={lang} t={t} currentPath={currentPath} navItems={navItems}/>

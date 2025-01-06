@@ -1,20 +1,18 @@
 ---
-import '@/assets/styles/tailwind.css';
+import "@/assets/styles/tailwind.css";
 import CommonMeta from "@components/common/CommonMeta.astro";
 import Metadata from "@components/common/Metadata.astro";
 import Favicons from "@components/Favicons.astro";
 
 import type { MetaData as MetaDataType } from "@/types";
-import { defaultLang, i18n, tr, languages } from "@utils/i18n";
 import Analytics from "@components/common/Analytics.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import { getCurrentLang, getPathWithoutLang } from "@utils/navigation";
+import BasicScripts from "@components/common/BasicScripts.astro";
 import CustomStyles from "@components/common/CustomStyles.astro";
-import BasicScripts from '@components/common/BasicScripts.astro';
+import { defaultLang, i18n, languages, tr } from "@utils/i18n";
+import { getCurrentLang } from "@utils/navigation";
 
 export interface Props {
-  title: string;
+  title?: string;
   metadata?: MetaDataType;
 }
 
@@ -23,7 +21,6 @@ const { language, textDirection } = i18n;
 
 const currentPath = Astro.url.pathname;
 const lang = getCurrentLang(currentPath, languages, defaultLang);
-const pathWithoutLang = getPathWithoutLang(currentPath);
 const t = tr[lang as keyof typeof tr];
 ---
 
@@ -32,24 +29,17 @@ const t = tr[lang as keyof typeof tr];
   <head>
     <CommonMeta />
     <Favicons />
-	<CustomStyles />
+    <CustomStyles />
     <Metadata {...metadata} title={title} />
     <Analytics />
   </head>
   <body class="min-h-screen flex flex-col">
-	<Fragment slot="header">
-    <Header lang={lang} currentPath={pathWithoutLang} t={t} />
-	</Fragment>
-    <main class="flex-grow max-w-6xl mx-auto px-4 py-8 w-full">
-      <slot />
-	  <BasicScripts />
-	</main>
-
-    <Footer />
+    <slot />
+    <BasicScripts />
   </body>
 </html>
 
-<style is:global>
+<!-- <style is:global>
   :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
@@ -62,4 +52,4 @@ const t = tr[lang as keyof typeof tr];
   body {
     margin: 0;
   }
-</style>
+</style> -->

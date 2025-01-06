@@ -19,7 +19,7 @@ import { siteConfig } from "@utils/config";
   }
 
   const initTheme = function () {
-    if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
+    if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system' && defaultTheme)) {
       applyTheme(defaultTheme.replace(':only', ''));
     } else if (
       localStorage.theme === 'dark' ||
@@ -66,7 +66,7 @@ import { siteConfig } from "@utils/config";
     });
 
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
-      if (defaultTheme.endsWith(':only')) {
+      if (defaultTheme && defaultTheme.endsWith(':only')) {
         return;
       }
       document.documentElement.classList.toggle('dark');

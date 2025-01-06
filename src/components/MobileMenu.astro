@@ -1,4 +1,5 @@
 ---
+import type { Link } from '@/types';
 import { createLocalizedPath } from '../utils/navigation';
 import LanguagePicker from './LanguagePicker.astro';
 
@@ -6,16 +7,11 @@ interface Props {
   lang: string;
   currentPath: string;
   t: Record<string, string>;
+  navItems: Link[];
 }
 
-const { lang, currentPath, t } = Astro.props;
+const { lang, currentPath, t, navItems } = Astro.props;
 
-const navItems = [
-  { key: 'nav.home', path: '' },
-  { key: 'nav.blog', path: 'blog' },
-  { key: 'nav.cfp', path: 'cfp' },
-  { key: 'nav.about', path: 'about' }
-];
 ---
 
 <div id="mobileMenu" class="hidden fixed inset-0 bg-white z-50">
@@ -29,16 +25,19 @@ const navItems = [
     </div>
     <nav class="flex-1">
       <ul class="space-y-6">
-        {navItems.map(({ key, path }) => (
-          <li>
-            <a 
-              href={createLocalizedPath(lang, path)}
-              class="text-gray-900 text-xl block hover:text-primary"
-            >
-              {t[key]}
-            </a>
-          </li>
-        ))}
+        {
+          navItems && (navItems.map((item) => (
+            <li>
+              <a
+                href={createLocalizedPath(lang, item.href ?? "")}
+                class="text-gray-900 dark:text-red hover:text-primary"
+              >
+                {t[item.key as keyof typeof t]}
+              </a>
+            </li>
+          ))
+        )
+    }
       </ul>
     </nav>
   </div>
