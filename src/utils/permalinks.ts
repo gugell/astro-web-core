@@ -1,8 +1,8 @@
 import slugify from "limax";
 
+import { blog } from "./blog";
 import { siteConfig } from "./config";
 import { trim } from "./utils";
-import { blog } from "./blog";
 
 export const trimSlash = (s: string) => trim(trim(s, "/"));
 const createPath = (...params: string[]) => {

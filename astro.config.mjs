@@ -1,12 +1,19 @@
-import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
+import { defineConfig } from "astro/config";
 
-import icon from "astro-icon";
-import sitemap from '@astrojs/sitemap';
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import icon from "astro-icon";
+
+import {
+  lazyImagesRehypePlugin,
+  readingTimeRemarkPlugin,
+  responsiveTablesRehypePlugin,
+} from "./src/utils/frontmatter";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "static",
   integrations: [
     tailwind(),
     sitemap(),
@@ -28,6 +35,10 @@ export default defineConfig({
     }),
     mdx(),
   ],
+  markdown: {
+    remarkPlugins: [readingTimeRemarkPlugin],
+    rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
+  },
   i18n: {
     defaultLocale: "en",
     locales: ["en", "de"],

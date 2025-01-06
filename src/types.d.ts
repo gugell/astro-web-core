@@ -34,6 +34,11 @@ export interface Faqs extends Omit<Headline, "classes">, Widget {
   columns?: number;
 }
 
+export interface Brands extends Omit<Headline, "classes">, Widget {
+  icons?: Array<string>;
+  images?: Array<Image>;
+}
+
 export interface ItemGrid {
   items?: Array<Item>;
   columns?: number;
@@ -151,4 +156,47 @@ export interface CallToAction extends HTMLAttributes<a> {
   icon?: string;
   classes?: Record<string, string>;
   type?: "button" | "submit" | "reset";
+}
+
+export interface Post {
+  /** A unique ID number that identifies a post. */
+  id: string;
+
+  /** A post’s unique slug – part of the post’s URL based on its name, i.e. a post called “My Sample Page” has a slug “my-sample-page”. */
+  slug: string;
+
+  /**  */
+  permalink: string;
+
+  /**  */
+  publishDate: Date;
+  /**  */
+  updateDate?: Date;
+
+  /**  */
+  title: string;
+  /** Optional summary of post content. */
+  excerpt?: string;
+  /**  */
+  image?: ImageMetadata | string;
+
+  /**  */
+  category?: Taxonomy;
+  /**  */
+  tags?: Taxonomy[];
+  /**  */
+  author?: string;
+
+  /**  */
+  metadata?: MetaData;
+
+  /**  */
+  draft?: boolean;
+
+  /**  */
+  Content?: AstroComponentFactory;
+  content?: string;
+
+  /**  */
+  readingTime?: number;
 }

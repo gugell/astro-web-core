@@ -4,7 +4,7 @@ blog:
 
   post:
     isEnabled: true
-    permalink: "/%slug%" # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+    permalink: "/blog/%slug%" # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
     robots:
       index: true
 

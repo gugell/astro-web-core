@@ -89,3 +89,17 @@ const getAppBlog = () => {
 };
 
 export const blog = getAppBlog();
+
+export const isBlogEnabled = blog.isEnabled;
+export const isRelatedPostsEnabled = blog.isRelatedPostsEnabled;
+export const isBlogListRouteEnabled = blog.list.isEnabled;
+export const isBlogPostRouteEnabled = blog.post.isEnabled;
+export const isBlogCategoryRouteEnabled = blog.category.isEnabled;
+export const isBlogTagRouteEnabled = blog.tag.isEnabled;
+
+export const blogListRobots = blog.list.robots;
+export const blogPostRobots = blog.post.robots;
+export const blogCategoryRobots = blog.category.robots;
+export const blogTagRobots = blog.tag.robots;
+
+export const blogPostsPerPage = blog?.postsPerPage;
