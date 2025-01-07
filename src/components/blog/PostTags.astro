@@ -1,0 +1,49 @@
+---
+import { getPermalink } from "@/utils/permalinks";
+
+import type { Post } from "@/types";
+import { isBlogTagRouteEnabled } from "@utils/blog";
+
+export interface Props {
+  tags: Post["tags"];
+  class?: string;
+  title?: string | undefined;
+  isCategory?: boolean;
+}
+
+const {
+  tags,
+  class: className = "text-sm",
+  title = undefined,
+  isCategory = false,
+} = Astro.props;
+---
+
+{
+  tags && Array.isArray(tags) && (
+    <>
+      {title !== undefined && (
+        <span class="align-super font-normal underline underline-offset-4 decoration-2 dark:text-slate-400">
+          {title}
+        </span>
+      )}
+      <ul class={className}>
+        {tags.map((tag) => (
+          <li class="bg-gray-100 dark:bg-slate-700 rounded-md inline-block mr-2 rtl:mr-0 rtl:ml-2 mb-2 py-0.5 px-2 lowercase font-medium">
+            {
+              <a
+                href={
+                  isBlogTagRouteEnabled ? getPermalink(tag.slug, "tag") : "#"
+                }
+                target="_self"
+                class="px-2.5 py-1 text-xs text-red-600 font-medium bg-red-50/80 capitalize"
+              >
+                {tag.title}
+              </a>
+            }
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}

@@ -1,22 +1,55 @@
+---
+import "@/assets/styles/tailwind.css";
+import CommonMeta from "@components/common/CommonMeta.astro";
+import Metadata from "@components/common/Metadata.astro";
+import Favicons from "@components/Favicons.astro";
+
+import type { MetaData as MetaDataType } from "@/types";
+import Analytics from "@components/common/Analytics.astro";
+import BasicScripts from "@components/common/BasicScripts.astro";
+import CustomStyles from "@components/common/CustomStyles.astro";
+import { defaultLang, i18n, languages, tr } from "@utils/i18n";
+import { getCurrentLang } from "@utils/navigation";
+
+export interface Props {
+  title?: string;
+  metadata?: MetaDataType;
+}
+
+const { metadata = {}, title } = Astro.props;
+const { language, textDirection } = i18n;
+
+const currentPath = Astro.url.pathname;
+const lang = getCurrentLang(currentPath, languages, defaultLang);
+const t = tr[lang as keyof typeof tr];
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang={language} dir={textDirection}>
+  <head>
+    <CommonMeta />
+    <Favicons />
+    <CustomStyles />
+    <Metadata {...metadata} title={title} />
+    <Analytics />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <slot />
+    <BasicScripts />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<!-- <style is:global>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background: #f6f6f6;
+  }
+  body {
+    margin: 0;
+  }
+</style> -->

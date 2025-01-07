@@ -1,0 +1,10 @@
+site:
+  title: "Mobileheads Austria"
+  description: "Your hub for mobile development and innovation!"
+  keywords:
+    - mobile development
+    - mobile community
+    - tech events
+  author: "Mobileheads Team"
+  ogImage: "/images/og-image.jpg"
+  language: "en"

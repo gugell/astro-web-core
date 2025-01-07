@@ -1,0 +1,14 @@
+---
+import TeamComponent from "@components/widgets/TeamComponent.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import { defaultLang, languages, tr } from "@utils/i18n";
+import { getCurrentLang } from "@utils/navigation";
+
+const currentPath = Astro.url.pathname;
+const lang = getCurrentLang(currentPath, languages, defaultLang);
+const t = tr[lang as keyof typeof tr];
+---
+
+<PageLayout title={t["team.title"]}>
+  <TeamComponent t={t} />
+</PageLayout>

@@ -1,0 +1,101 @@
+---
+import { teamMembers } from "@/data/about/team";
+import Team from "./Team.astro";
+
+interface Props {
+  t: Record<string, string>;
+}
+
+const { t } = Astro.props;
+---
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="text-center">
+    <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+      {t["team.title"]}
+    </h1>
+    <p class="mt-4 text-xl text-gray-500">
+      Building a community of mobile developers, designers, and enthusiasts to
+      shape the future of mobile technology.
+    </p>
+  </div>
+
+  <div class="mt-12 text-center">
+    <h2 class="text-3xl font-semibold text-gray-900">Our Philosophy</h2>
+    <p class="mt-4 text-lg text-gray-500">
+      We believe in the power of collaboration and knowledge sharing. At
+      Mobileheads Austria, we are committed to fostering a supportive
+      environment where developers and designers can grow, innovate, and build
+      meaningful connections. Our focus is on creating opportunities for
+      learning, mentorship, and hands-on experience to empower our members and
+      shape the future of mobile development.
+    </p>
+  </div>
+  <!-- 
+  <div class="mt-16">
+    <h2 class="text-3xl font-semibold text-gray-900 text-center">
+      Meet Our Team
+    </h2>
+    <div
+      class="m-auto mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12"
+    >
+      {
+        teamMembers.map((member) => (
+          <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+            <img
+              class="h-48 w-full object-cover"
+              src={member.image}
+              alt={member.name}
+            />
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-bold text-gray-900">{member.name}</h3>
+              <p class="text-sm text-blue-600 font-medium">{member.role}</p>
+              <p class="mt-4 text-gray-600">{member.description}</p>
+              <div class="mt-6 flex justify-center space-x-4">
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    class="text-blue-500 hover:text-blue-700"
+                  >
+                    LinkedIn
+                  </a>
+                )}
+                <a
+                  href={member.twitter}
+                  target="_blank"
+                  class="text-blue-400 hover:text-blue-600"
+                >
+                  Twitter
+                </a>
+                <a
+                  href={`mailto:${member.email}`}
+                  class="text-blue-500 hover:text-blue-700"
+                >
+                  Email
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+-->
+  <Team t={t} teamMembers={teamMembers} />
+
+  <div class="mt-16 text-center">
+    <h2 class="text-3xl font-semibold text-gray-900">Get Involved</h2>
+    <p class="mt-4 text-lg text-gray-500">
+      Whether you're looking to attend an event, share your expertise, or
+      support the community, we’d love to have you involved.
+    </p>
+    <p class="mt-4 text-lg text-gray-500">
+      For more information, contact us at <a
+        href="mailto:info@mobileheads.at"
+        class="text-blue-500 hover:text-blue-700">info@mobileheads.at</a
+      >.
+    </p>
+  </div>
+</div>
