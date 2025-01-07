@@ -1,6 +1,7 @@
 ---
 import type { Link } from "@/types";
 import { createLocalizedPath } from "../utils/navigation";
+import Logo from "./common/Logo.astro";
 import LanguagePicker from "./LanguagePicker.astro";
 import MobileMenu from "./MobileMenu.astro";
 import ToggleTheme from "./ui/ToggleTheme.astro";
@@ -43,7 +44,7 @@ const {
         href={createLocalizedPath(lang, "")}
         class="text-gray-900 text-2xl font-bold hover:text-primary"
       >
-        MobileHeads Austria
+        <Logo />
       </a>
 
       <!-- Desktop Navigation -->

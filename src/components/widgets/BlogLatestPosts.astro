@@ -4,9 +4,9 @@ import Grid from "@/components/blog/Grid.astro";
 import WidgetWrapper from "@/components/common/WidgetWrapper.astro";
 import type { Widget } from "@/types";
 import { getBlogPermalink } from "@/utils/permalinks";
+import Button from "@components/ui/Button.astro";
 import { blog } from "@utils/blog";
 import { findLatestPosts } from "@utils/blog-utils";
-import Button from "../ui/Button.astro";
 
 export interface Props extends Widget {
   title?: string;
@@ -18,7 +18,7 @@ export interface Props extends Widget {
 
 const {
   title = await Astro.slots.render("title"),
-  linkText = "View all posts",
+  linkText,
   linkUrl = getBlogPermalink(),
   information = await Astro.slots.render("information"),
   count = 4,
@@ -47,12 +47,6 @@ const posts = blog.isEnabled ? await findLatestPosts({ count }) : [];
               class="text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none group font-heading mb-2"
               set:html={title}
             />
-            {blog.list.isEnabled && linkText && linkUrl && (
-              <Button variant="link" href={linkUrl}>
-                {" "}
-                {linkText} »
-              </Button>
-            )}
           </div>
         )}
 
@@ -65,6 +59,14 @@ const posts = blog.isEnabled ? await findLatestPosts({ count }) : [];
       </div>
 
       <Grid posts={posts} />
+
+      {blog.list.isEnabled && linkText && linkUrl && (
+        <div class="mt-8 text-right">
+          <Button variant="link" href={linkUrl}>
+            {linkText}
+          </Button>
+        </div>
+      )}
     </WidgetWrapper>
   ) : (
     <Fragment />

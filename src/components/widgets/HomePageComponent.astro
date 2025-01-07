@@ -1,20 +1,33 @@
 ---
 import Image from "@/components/Image.astro";
 import Button from "@components/ui/Button.astro";
+import Hero from "@components/ui/Hero.astro";
 import Hero2 from "@components/ui/Hero2.astro";
 import Stats from "@components/ui/Stats.astro";
 import BlogLatestPosts from "./BlogLatestPosts.astro";
 import Brands from "./Brands.astro";
 import FAQs from "./FAQs.astro";
 import Features3 from "./Features3.astro";
+
+import { defaultLang, languages, tr } from "@utils/i18n";
+import { getCurrentLang } from "@utils/navigation";
+
 const appStoreImg = "~/assets/images/app-store.png";
 const appStoreDownloadLink = "https://github.com/onwidget/astrowind";
 
 const googlePlayImg = "~/assets/images/google-play.png";
 const googlePlayDownloadLink = "https://github.com/onwidget/astrowind";
+
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "de" } }];
+}
+
+const currentPath = Astro.url.pathname;
+const lang = getCurrentLang(currentPath, languages, defaultLang);
+const t = tr[lang as keyof typeof tr];
 ---
 
-<!-- <Hero
+<Hero
   tagline="Lead Generation Landing Demo"
   title="Effective Lead Generation Landing Page: Unlock the Secrets"
   subtitle="Discover the secrets to creating a Landing Page that turns curious visitors into eager leads. (Your Hero should grab attention instantly. Use a powerful headline that speaks directly to your target audience.)"
@@ -31,7 +44,7 @@ const googlePlayDownloadLink = "https://github.com/onwidget/astrowind";
     src: "https://images.unsplash.com/photo-1597423498219-04418210827d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
     alt: "Magnet attracting screws. Lead generation landing page demo",
   }}
-/> -->
+/>
 <Hero2
   tagline="Long-form Sales Demo"
   title="Long-form Sales: Sell with a Story: The Long-form Way!"
@@ -187,6 +200,7 @@ const googlePlayDownloadLink = "https://github.com/onwidget/astrowind";
 <BlogLatestPosts
   id="blog"
   title="Explore my insightful articles on my blog"
+  linkText="View All Posts"
   information={`Dive into a realm of design wisdom and creative inspiration, where you'll find invaluable insights, practical tips, and captivating narratives that elevate and enrich your creative journey.`}
 >
   <Fragment slot="bg">
