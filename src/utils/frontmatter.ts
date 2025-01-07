@@ -4,12 +4,12 @@ import getReadingTime from "reading-time";
 import { visit } from "unist-util-visit";
 
 export const readingTimeRemarkPlugin: RemarkPlugin = () => {
-  return function (tree, file) {
+  return function (tree, { data }) {
     const textOnPage = toString(tree);
     const readingTime = Math.ceil(getReadingTime(textOnPage).minutes);
 
-    if (typeof file?.data?.astro?.frontmatter !== "undefined") {
-      file.data.astro.frontmatter.readingTime = readingTime;
+    if (typeof data?.astro?.frontmatter !== "undefined") {
+      data.astro.frontmatter.readingTime = readingTime;
     }
   };
 };

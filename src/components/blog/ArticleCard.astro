@@ -1,0 +1,40 @@
+---
+import type { Post } from "@/types";
+import { getPermalink } from "@utils/permalinks";
+import DateTag from "./DateTag.astro";
+import Tag from "./Tag.astro";
+
+type Props = {
+  post: Post;
+};
+
+const { post } = Astro.props;
+
+const permalink = getPermalink(post.permalink, "post");
+---
+
+<div class="flex flex-col gap-4">
+  {
+    post.id && (
+      <a href={permalink} target="_self">
+        <img
+          src={post.image ? `${post.image}?w=800&q=80` : ""}
+          alt="cover"
+          class="w-full aspect-video rounded-lg self-auto object-cover"
+        />
+      </a>
+    )
+  }
+  <div class="flex flex-col gap-2">
+    <div class="flex gap-2">
+      <DateTag date={post.publishDate?.toDateString() ?? ""} />
+      {post.tags?.map((tag) => <Tag tag={tag} />)}
+    </div>
+    <a href={permalink} target="_self">
+      <h1 class="text-3xl font-title font-black">{post.title}</h1>
+    </a>
+    <a href={permalink} target="_self">
+      <p class="text-sm text-zinc-700">{post.excerpt}</p>
+    </a>
+  </div>
+</div>

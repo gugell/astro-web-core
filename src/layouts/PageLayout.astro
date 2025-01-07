@@ -24,13 +24,7 @@ const { metadata, title } = Astro.props;
 
 <Layout metadata={metadata} title={title}>
   <slot name="header">
-    <Header
-      lang={lang}
-      currentPath={pathWithoutLang}
-      t={t}
-      {...headerData}
-      showToggleTheme
-    />
+    <Header lang={lang} currentPath={pathWithoutLang} t={t} {...headerData} />
   </slot>
   <main class="container mx-auto px-4 py-0">
     <slot />

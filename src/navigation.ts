@@ -3,7 +3,7 @@ import { getAsset, getBlogPermalink, getPermalink } from "./utils/permalinks";
 export const headerData = {
   navItems: [
     { key: "nav.home", href: "" },
-    { key: "nav.blog", href: "blog" },
+    { key: "nav.blog", href: "articles" },
     { key: "nav.cfp", href: "cfp" },
     // { key: "nav.cfp", href: "cfp-md" },
     { key: "nav.about", href: "about" },

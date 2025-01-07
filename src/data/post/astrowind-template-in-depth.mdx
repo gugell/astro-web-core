@@ -12,8 +12,8 @@ metadata:
   canonical: https://astrowind.vercel.app/astrowind-template-in-depth
 ---
 
-import DListItem from '~/components/ui/DListItem.astro';
-import ToggleTheme from '~/components/common/ToggleTheme.astro';
+import DListItem from '@components/ui/DListItem.astro';
+import ToggleTheme from '@components/ui/ToggleTheme.astro';
 
 ## Overview
 
@@ -81,7 +81,7 @@ export interface Props {
 And in usage elsewhere:
 
 ```astro
-import MyComponent from "~/components/MyComponent"; ...
+import MyComponent from "@/components/MyComponent"; ...
 <MyComponent someArg="A Slot example">
   <p>This content will be displayed in the slot</p>
 </MyComponent>
@@ -204,4 +204,10 @@ const { subtitle = await Astro.slots.render('subtitle') } = Astro.props;
 
 There's a lot to wrap your head around, here.
 
-Notice first that _subtitle_ is defined as a prop/argument, but it's being processed as a slot. Interestingly, prop args and slots seem to be somewhat interchangeable: if the subtitle was just a string, it would simply take that assignment. The main difference is that if you render them independently, you have to call the render with an _await_ modifier.
+Notice first that _subtitle_ is defined as a prop/argument, but it's being processed as a slot. Interestingly, prop args and slots seem to be somewhat interchangeable: if the subtitle was just a string, it would simply take that assignment. The main difference is that if you render them independently, you have to call the render with an _await_ modifier.import ToggleTheme from '@/components/common/ToggleTheme.astro';
+import DListItem from '@/components/ui/DListItem.astro';
+import ToggleTheme from '@components/common/ToggleTheme.astro';
+import DListItem from '@components/ui/DListItem.astro';
+import DListItem from '@components/ui/DListItem.astro';
+import ToggleTheme from '@components/ui/ToggleTheme.astro';
+

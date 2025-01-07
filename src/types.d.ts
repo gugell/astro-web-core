@@ -158,6 +158,11 @@ export interface CallToAction extends HTMLAttributes<a> {
   type?: "button" | "submit" | "reset";
 }
 
+export interface Taxonomy {
+  slug: string;
+  title: string;
+}
+
 export interface Post {
   /** A unique ID number that identifies a post. */
   id: string;

@@ -1,7 +1,6 @@
-import type { Post } from "@/types";
+import type { Post, Taxonomy } from "@/types";
 import type { PaginateFunction } from "astro";
-import { render } from "astro/compiler-runtime";
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import {
   blog,
   blogPostsPerPage,
@@ -62,7 +61,9 @@ const getNormalizedPost = async (
   post: CollectionEntry<"post">
 ): Promise<Post> => {
   const { id, data } = post;
-  const { Content, remarkPluginFrontmatter } = await render(post);
+  const result = await render(post);
+  // const { Content, remarkPluginFrontmatter } = await render(post);
+  // const renderContent = await render(post);
 
   const {
     publishDate: rawPublishDate = new Date(),
@@ -118,10 +119,10 @@ const getNormalizedPost = async (
 
     metadata,
 
-    Content: Content,
+    Content: result.Content,
     // or 'content' in case you consume from API
 
-    readingTime: remarkPluginFrontmatter?.readingTime,
+    readingTime: result.remarkPluginFrontmatter?.readingTime,
   };
 };
 
@@ -201,7 +202,7 @@ export const getStaticPathsBlogList = async ({
 }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
   return paginate(await fetchPosts(), {
-    params: { blog: BLOG_BASE || undefined },
+    params: { articles: BLOG_BASE || undefined },
     pageSize: blogPostsPerPage,
   });
 };
@@ -211,7 +212,7 @@ export const getStaticPathsBlogPost = async () => {
   if (!isBlogEnabled || !isBlogPostRouteEnabled) return [];
   return (await fetchPosts()).flatMap((post) => ({
     params: {
-      blog: post.permalink,
+      articles: post.permalink,
     },
     props: { post },
   }));
@@ -226,7 +227,7 @@ export const getStaticPathsBlogCategory = async ({
   if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
 
   const posts = await fetchPosts();
-  const categories: Record<string, string> = {};
+  const categories: Record<string, Taxonomy> = {};
   posts.map((post) => {
     if (post.category?.slug) {
       categories[post.category?.slug] = post.category;
@@ -256,7 +257,7 @@ export const getStaticPathsBlogTag = async ({
   if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
 
   const posts = await fetchPosts();
-  const tags: Record<string, string> = {};
+  const tags: Record<string, Taxonomy> = {};
   posts.map((post) => {
     if (Array.isArray(post.tags)) {
       post.tags.map((tag) => {

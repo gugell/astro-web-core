@@ -4,13 +4,13 @@ blog:
 
   post:
     isEnabled: true
-    permalink: "/blog/%slug%" # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+    permalink: "/articles/%slug%" # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
     robots:
       index: true
 
   list:
     isEnabled: true
-    pathname: "blog" # Blog main path, you can change this to "articles" (/articles)
+    pathname: "articles" # Blog main path, you can change this to "articles" (/articles)
     robots:
       index: true
 
@@ -21,7 +21,7 @@ blog:
       index: true
 
   tag:
-    isEnabled: true
+    isEnabled: false
     pathname: "tag" # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
     robots:
       index: false
