@@ -1,32 +1,12 @@
 ---
+import { teamMembers } from "@/data/about/team";
+import Team from "./Team.astro";
+
 interface Props {
   t: Record<string, string>;
 }
 
 const { t } = Astro.props;
-
-const teamMembers = [
-  {
-    name: "Ilia Gutu",
-    role: "Organizer",
-    description:
-      "Ilia is passionate about mobile development, automation, and mentoring the next generation of developers.",
-    email: "ilia@mobileheads.at",
-    image: "https://via.placeholder.com/150",
-    linkedin: "https://linkedin.com/in/iliagutu",
-    twitter: "https://twitter.com/iliagutu",
-  },
-  {
-    name: "Jane Doe",
-    role: "Co-organizer",
-    description:
-      "Jane brings expertise in UI/UX design and focuses on creating engaging user experiences.",
-    email: "jane@mobileheads.at",
-    image: "https://via.placeholder.com/150",
-    linkedin: "https://linkedin.com/in/janedoe",
-    twitter: "https://twitter.com/janedoe",
-  },
-];
 ---
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -51,7 +31,7 @@ const teamMembers = [
       shape the future of mobile development.
     </p>
   </div>
-
+  <!-- 
   <div class="mt-16">
     <h2 class="text-3xl font-semibold text-gray-900 text-center">
       Meet Our Team
@@ -101,6 +81,9 @@ const teamMembers = [
       }
     </div>
   </div>
+
+-->
+  <Team t={t} teamMembers={teamMembers} />
 
   <div class="mt-16 text-center">
     <h2 class="text-3xl font-semibold text-gray-900">Get Involved</h2>

@@ -205,3 +205,8 @@ export interface Post {
   /**  */
   readingTime?: number;
 }
+
+export interface ImageAttrs {
+  src: string;
+  alt: string;
+}

@@ -67,6 +67,9 @@ export const tr = {
     "404.title": "Sorry, we couldn't find this page.",
     "404.subtitle":
       "But dont worry, you can find plenty of other things on our homepage.",
+    "about.communityTitle": "Our Community",
+    "about.intro":
+      "Welcome to Mobileheads Austria – the ultimate hub for mobile development enthusiasts, developers, and innovators! 🚀",
   },
   de: {
     "nav.home": "Start",
@@ -89,5 +92,9 @@ export const tr = {
     "404.title": "Sorry, we couldn't find this page. DE",
     "404.subtitle":
       "But dont worry, you can find plenty of other things on our homepage. DE",
+
+    "about.communityTitle": "Our Community DE",
+    "about.intro":
+      "Welcome to Mobileheads Austria – the ultimate hub for mobile development enthusiasts, developers, and innovators! 🚀 DE",
   },
 };

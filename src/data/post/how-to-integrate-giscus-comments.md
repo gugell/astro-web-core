@@ -6,7 +6,6 @@ title: "How to integrate Giscus comments into AstroPaper"
 slug: how-to-integrate-giscus-comments
 featured: true
 image: https://picsum.photos/200/300
-image:  https://picsum.photos/200/300
 draft: false
 tags:
   - astro

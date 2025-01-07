@@ -1,29 +1,55 @@
 ---
-import Button from '@components/ui/Button.astro';
+import { Content as AboutMarkdownDE } from "@/data/about/about-de.md";
+import { Content as AboutMarkdown } from "@/data/about/about.md";
+import { teamMembers } from "@/data/about/team";
+import ItemTeam from "./ItemTeam.astro";
 
 interface Props {
   t: Record<string, string>;
+  lang: string;
 }
 
-const { t } = Astro.props;
+const { t, lang } = Astro.props;
 ---
-<div class="max-w-3xl mx-auto">
-  <h1 class="text-4xl font-bold mb-8">{t['about.title']}</h1>
-  
-  <div class="bg-white p-8 rounded-lg shadow-md mb-8">
-    <h2 class="text-2xl font-bold mb-4">Our Community</h2>
-    <p class="mb-6">MobileHeads Austria is a vibrant community of mobile developers, designers, and enthusiasts. We organize regular meetups, workshops, and events to foster knowledge sharing and networking within the Austrian mobile development scene.</p>
-    
-    <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
-    <p class="mb-6">Our mission is to create a platform where mobile developers can connect, learn, and grow together. We believe in the power of community and knowledge sharing to advance the mobile development ecosystem in Austria.</p>
-    
-    <h2 class="text-2xl font-bold mb-4">Join Us</h2>
-    <p class="mb-6">Whether you're a seasoned developer or just starting your journey in mobile development, you're welcome to join our community!</p>
-    
-    <Button variant="primary"
-    text={t['about.ctaMeetup']} class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark"
-     target="_blank",
-     href="https://www.meetup.com/mobileheads-austria/"  />
 
+<div class="max-w-3xl mx-auto">
+  <h1 class="text-4xl font-bold mb-8">{t["about.title"]}</h1>
+  <div class="bg-white p-8 mb-8">
+    <h2 class="text-2xl font-bold mb-4">{t["about.communityTitle"]}</h2>
+    <p class="mb-6">
+      {t["about.intro"]}
+    </p>
+
+    <div class="flex items-stretch justify-center">
+      <div
+        class="grid grid-cols-1 gap-4 dark:text-white sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
+      >
+        {
+          teamMembers.map(({ name, role, image, links }, index) => (
+            <div class="p-2">
+              <ItemTeam
+                t={t}
+                name={name}
+                occupation={role}
+                image={image}
+                items={links}
+                containerClass=""
+                imageClass="h-72 w-60 rounded-md object-cover shadow-lg bg-gray-500 dark:bg-slate-700"
+                panelClass="relative mt-3 text-center"
+                nameClass="mb-1.5 text-xl font-bold"
+                occupationClass="mb-7 text-base font-medium capitalize text-gray-600 dark:text-slate-400"
+                itemsClass="absolute right-[-10px] top-[-290px] block list-none rounded-md bg-white/70 shadow-[0_0_8px_rgba(0,0,0,0.2)] backdrop-blur-sm dark:bg-white/40"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div
+      class="mx-auto prose prose-lg max-w-4xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8"
+    >
+      {lang === "de" ? <AboutMarkdownDE /> : <AboutMarkdown />}
+    </div>
   </div>
 </div>

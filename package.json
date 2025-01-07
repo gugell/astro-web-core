@@ -17,6 +17,7 @@
     "@fontsource-variable/inter": "^5.1.1",
     "@iconify-json/flat-color-icons": "^1.2.1",
     "@iconify-json/tabler": "^1.2.13",
+    "@jop-software/astro-cookieconsent": "^3.0.1",
     "@tailwindcss/typography": "^0.5.15",
     "astro": "^5.1.2",
     "astro-embed": "^0.9.0",
@@ -26,7 +27,8 @@
     "limax": "^4.1.0",
     "lodash.merge": "^4.6.2",
     "tailwind": "^4.0.0",
-    "unpic": "^3.22.0"
+    "unpic": "^3.22.0",
+    "vanilla-cookieconsent": "^3.0.1"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",

@@ -9,7 +9,6 @@ image: https://picsum.photos/200/300
 tags:
   - TypeScript
   - Astro
-excerpt: "EXAMPLE POST: About Tailwind Typography Plugin and how you can use it effectively."
 ---
 
 > This article is from [TailwindLabs](https://tailwindcss-typography.vercel.app/). I put this article to demonstrate how you can write blog posts/articles using AstroPaper theme.
@@ -88,7 +87,7 @@ And that's the end of this section.
 
 ## What if we stack headings?
 
-### We should make sure that looks good, too.
+### We should make sure that looks good, too
 
 Sometimes you have headings directly underneath each other. In those cases you often have to undo the top margin on the second heading because it usually looks better for the headings to be closer together than a paragraph followed by a heading should be.
 
@@ -112,7 +111,7 @@ When a heading comes after a paragraph, we need a bit more space, like I already
 
 After this sort of list I usually have a closing statement or paragraph, because it kinda looks weird jumping right to a heading.
 
-## Code should look okay by default.
+## Code should look okay by default
 
 I think most people are going to use [highlight.js](https://highlightjs.org/) or [Prism](https://prismjs.com/) or something if they want to style their code blocks but it wouldn't hurt to make them look _okay_ out of the box, even with no syntax highlighting.
 
@@ -199,9 +198,9 @@ But now we have. Please don't use `h5` or `h6` in your content, Medium only supp
 
 We don't style them at all out of the box because `h4` elements are already so small that they are the same size as the body copy. What are we supposed to do with an `h5`, make it _smaller_ than the body copy? No thanks.
 
-### We still need to think about stacked headings though.
+### We still need to think about stacked headings though
 
-#### Let's make sure we don't screw that up with `h4` elements, either.
+#### Let's make sure we don't screw that up with `h4` elements, either
 
 Phew, with any luck we have styled the headings above this text and they look pretty good.
 
