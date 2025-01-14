@@ -1,0 +1,46 @@
+---
+import Button from "@components/ui/Button.astro";
+interface Props {
+  t: Record<string, string>;
+  lang: string;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="relative not-prose">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:items-center">
+    <div class="pointer-events-none"></div>
+    <div class="text-center md:pb-16 max-w-5xl mx-auto">
+      {
+        (
+          <h1
+            class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+            set:html={t["home.title"]}
+          />
+        )
+      }
+      <div class="max-w-3xl mx-auto">
+        {
+          (
+            <p
+              class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once"
+              set:html={t["home.subtitle"]}
+            />
+          )
+        }
+
+        <div class="flex justify-center space-x-2 md:space-x-4">
+          <Button variant="primary" href="/pricing">
+            <span>{t["about.ctaMeetup"]}</span>
+            <!-- <Icon name="lucide:arrow-right" class="size-4" /> -->
+          </Button>
+          <Button variant="secondary" href="/pricing">
+            <span>{t["cfp.cta"]}</span>
+            <!-- <Icon name="lucide:arrow-right" class="size-4" /> -->
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

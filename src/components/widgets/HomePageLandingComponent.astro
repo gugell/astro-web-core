@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content";
+import BlogLatestPosts from "./BlogLatestPosts.astro";
+import GetInvolved from "./GetInvolved.astro";
+import MeetupFAQ from "./MeetupFAQ.astro";
+import SponsorsComponent from "./SponsorsComponent.astro";
+import TeamComponent from "./TeamComponent.astro";
+import TechnologiesStacks from "./TechnologiesStacks.astro";
+import LandingHero from "./home/LandingHero.astro";
+import UpcomingEventComponent from "./home/UpcomingEventComponent.astro";
+
+const events = await getCollection("events");
+events.sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+const upcomingEvent = events[0];
+
+interface Props {
+  t: Record<string, string>;
+  lang: string;
+}
+
+const { t, lang } = Astro.props;
+---
+
+<div class="-my-20">
+  <UpcomingEventComponent t={t} data={upcomingEvent} reverse />
+
+  <LandingHero t={t} lang={lang} />
+
+  <TeamComponent t={t} />
+
+  <SponsorsComponent t={t} />
+
+  <div class="my-4">
+    <GetInvolved t={t} />
+
+    <div class="my-4">
+      <TechnologiesStacks t={t} />
+    </div>
+    <MeetupFAQ t={t} lang={lang} />
+    <BlogLatestPosts
+      id="blog"
+      title="Explore my insightful articles on my blog"
+      linkText="View All Posts"
+      information={`Dive into a realm of design wisdom and creative inspiration, where you'll find invaluable insights, practical tips, and captivating narratives that elevate and enrich your creative journey.`}
+    >
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      </Fragment>
+    </BlogLatestPosts>
+  </div>
+</div>

@@ -207,6 +207,6 @@ export interface Post {
 }
 
 export interface ImageAttrs {
-  src: string;
+  src: string | ImageMetadata;
   alt: string;
 }

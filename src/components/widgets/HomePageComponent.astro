@@ -1,16 +1,16 @@
 ---
-import Image from "@/components/Image.astro";
-import Button from "@components/ui/Button.astro";
-import Hero from "@components/ui/Hero.astro";
-import Hero2 from "@components/ui/Hero2.astro";
-import Stats from "@components/ui/Stats.astro";
-import BlogLatestPosts from "./BlogLatestPosts.astro";
-import Brands from "./Brands.astro";
-import FAQs from "./FAQs.astro";
-import Features3 from "./Features3.astro";
-
 import { defaultLang, languages, tr } from "@utils/i18n";
 import { getCurrentLang } from "@utils/navigation";
+import { getCollection } from "astro:content";
+import BlogLatestPosts from "./BlogLatestPosts.astro";
+import Features3 from "./Features3.astro";
+import GetInvolved from "./GetInvolved.astro";
+import MeetupFAQ from "./MeetupFAQ.astro";
+import SponsorsComponent from "./SponsorsComponent.astro";
+import TeamComponent from "./TeamComponent.astro";
+import TechnologiesStacks from "./TechnologiesStacks.astro";
+import LandingHero from "./home/LandingHero.astro";
+import UpcomingEventComponent from "./home/UpcomingEventComponent.astro";
 
 const appStoreImg = "~/assets/images/app-store.png";
 const appStoreDownloadLink = "https://github.com/onwidget/astrowind";
@@ -25,27 +25,19 @@ export async function getStaticPaths() {
 const currentPath = Astro.url.pathname;
 const lang = getCurrentLang(currentPath, languages, defaultLang);
 const t = tr[lang as keyof typeof tr];
+
+const events = await getCollection("events");
+events.sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+const upcomingEvent = events[0];
 ---
 
-<Hero
-  tagline="Lead Generation Landing Demo"
-  title="Effective Lead Generation Landing Page: Unlock the Secrets"
-  subtitle="Discover the secrets to creating a Landing Page that turns curious visitors into eager leads. (Your Hero should grab attention instantly. Use a powerful headline that speaks directly to your target audience.)"
-  actions={[
-    {
-      variant: "primary",
-      text: "Call to Action",
-      href: "#",
-      icon: "tabler:square-rounded-arrow-right",
-    },
-    { text: "Learn more", href: "#" },
-  ]}
-  image={{
-    src: "https://images.unsplash.com/photo-1597423498219-04418210827d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
-    alt: "Magnet attracting screws. Lead generation landing page demo",
-  }}
-/>
-<Hero2
+<UpcomingEventComponent t={t} data={upcomingEvent} reverse />
+
+<LandingHero t={t} lang={lang} />
+
+<!-- <HomePageHero t={t} lang={lang} /> -->
+
+<!-- <Hero2
   tagline="Long-form Sales Demo"
   title="Long-form Sales: Sell with a Story: The Long-form Way!"
   subtitle="Dive deep into crafting a Landing Page that narrates, persuades, and converts."
@@ -63,8 +55,8 @@ const t = tr[lang as keyof typeof tr];
     alt: "Children telling a story. Long-form Sales Landing Page demo",
   }}
 />
-
-<Hero2
+-->
+<!-- <Hero2
   tagline="Mobile App Web Demo"
   image={{
     src: "https://images.unsplash.com/photo-1535303311164-664fc9ec6532?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
@@ -93,9 +85,7 @@ const t = tr[lang as keyof typeof tr];
       <Image src={googlePlayImg} alt="Google Play Image" width={200} />
     </Button>
   </div>
-</Hero2>
-
-<!-- Features3 Widget ************** -->
+</Hero2> -->
 
 <Features3
   id="features"
@@ -133,58 +123,27 @@ const t = tr[lang as keyof typeof tr];
   }}
 />
 
-<Stats
+<!-- Features3 Widget ************** -->
+
+<TeamComponent t={t} />
+
+<SponsorsComponent t={t} />
+
+<div class="my-4">
+  <GetInvolved t={t} />
+</div>
+
+<TechnologiesStacks t={t} />
+
+<MeetupFAQ t={t} lang={lang} />
+
+<!-- <Stats
   title="Statistics about us"
   stats={[
     { title: "Offices", amount: 4 },
     { title: "Employees", amount: 248 },
     { title: "Templates", amount: 12 },
     { title: "Awards", amount: 24 },
-  ]}
-/>
-
-<Brands
-  title="Partnerships & Collaborations"
-  subtitle="At Astrowind, we believe in the power of collaboration to drive innovation and create exceptional experiences."
-  icons={[]}
-  images={[
-    {
-      src: "https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png",
-      alt: "Paypal",
-    },
-    {
-      src: "https://cdn.pixabay.com/photo/2021/12/06/13/48/visa-6850402_1280.png",
-      alt: "Visa",
-    },
-    {
-      src: "https://cdn.pixabay.com/photo/2013/10/01/10/29/ebay-189064_1280.png",
-      alt: "Ebay",
-    },
-
-    {
-      src: "https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png",
-      alt: "Youtube",
-    },
-    {
-      src: "https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png",
-      alt: "Microsoft",
-    },
-    {
-      src: "https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png",
-      alt: "Node JS",
-    },
-    {
-      src: "https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png",
-      alt: "Google",
-    },
-    {
-      src: "https://cdn.pixabay.com/photo/2021/12/06/13/45/meta-6850393_1280.png",
-      alt: "Meta",
-    },
-    {
-      src: "https://cdn.pixabay.com/photo/2013/01/29/22/53/yahoo-76684_1280.png",
-      alt: "Yahoo",
-    },
   ]}
 />
 
@@ -195,7 +154,7 @@ const t = tr[lang as keyof typeof tr];
     { amount: "18.5K", icon: "tabler:users" },
     { amount: "4.7", icon: "tabler:user-star" },
   ]}
-/>
+/> -->
 
 <BlogLatestPosts
   id="blog"
@@ -207,43 +166,3 @@ const t = tr[lang as keyof typeof tr];
     <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
   </Fragment>
 </BlogLatestPosts>
-
-<FAQs
-  title="Frequently Asked Questions"
-  subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-  tagline="FAQs"
-  classes={{ container: "max-w-6xl" }}
-  items={[
-    {
-      title: "Why AstroWind?",
-      description:
-        "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-    },
-    {
-      title: "What do I need to start?",
-      description:
-        "Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.",
-    },
-    {
-      title: "How to install the Astro + Tailwind CSS template?",
-      description:
-        "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-    },
-    {
-      title: "What's something that you don't understand?",
-      description:
-        "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-    },
-    {
-      title: "What is something that you would like to try again?",
-      description:
-        "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-    },
-    {
-      title:
-        "If you could only ask one question to each person you meet, what would that question be?",
-      description:
-        "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-    },
-  ]}
-/>

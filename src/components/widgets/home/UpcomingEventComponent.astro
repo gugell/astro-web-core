@@ -1,0 +1,132 @@
+---
+import SocialShare from "@components/common/SocialShare.astro";
+import Button from "@components/ui/Button.astro";
+import { cn } from "@utils/utils";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  reverse?: boolean;
+  data: CollectionEntry<"events">;
+}
+
+interface Props {
+  t: Record<string, string>;
+}
+
+const { reverse, data, t } = Astro.props;
+const { title, description, image, pubDate, location, talks, meetupLink } =
+  data.data;
+---
+
+<div class="py-16 sm:py-20">
+  <header class="mb-8 md:mb-4 max-w-3xl sm:mx-32">
+    <h1
+      class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+      set:html={t["upcomingEvents.title"]}
+    />
+
+    <div
+      class="mt-2 md:mt-3 mx-auto text-xl text-gray-500 dark:text-slate-400 font-medium"
+      set:html={t["upcomingEvents.subtitle"]}
+    />
+  </header>
+
+  <div
+    class="mx-auto grid max-w-7xl gap-10 px-4 sm:gap-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8"
+  >
+    <div class={cn(reverse ? "lg:order-2" : "lg:order-1")}>
+      <h2
+        class="font-heading text-3xl text-foreground md:text-4xl lg:text-[40px]"
+      >
+        {title}
+      </h2>
+      <p class="mt-6 text-lg text-muted">
+        {description}
+      </p>
+      <div class="mt-6 space-y-4 leading-7">
+        <!-- <div class="font-semibold">
+          <Icon name="lucide:calendar" class="size-5 stroke-purple-700" />
+          <span>{date.toLocaleDateString()}</span>
+        </div> -->
+
+        {
+          pubDate && (
+            <div class="relative pl-8">
+              <dt class="font-semibold">
+                <Icon
+                  name="lucide:calendar"
+                  class="absolute left-0 top-1 size-5 stroke-purple-700"
+                />
+                <span>{pubDate}</span>
+              </dt>
+            </div>
+          )
+        }
+
+        <div class="relative pl-8">
+          <dt class="font-semibold">
+            <Icon
+              name="lucide:map-pinned"
+              class="absolute left-0 top-1 size-5 stroke-purple-700"
+            />
+            <span>{location}</span>
+          </dt>
+        </div>
+
+        <ul class="list-disc pl-8">
+          {
+            talks &&
+              talks.map((item) => (
+                <li class="decoration-style-dashed">
+                  <span>
+                    <p class="text-sm text-muted-foreground text-black">
+                      {item.title}
+                    </p>
+                    <p class="text-sm text-muted">{item.description}</p>
+                  </span>
+                </li>
+              ))
+          }
+        </ul>
+      </div>
+    </div>
+    <div
+      class={cn(
+        "rounded-xl overflow-hidden border lg:-m-4",
+        reverse ? "order-1" : "order-2"
+      )}
+    >
+      <div class="relative aspect-video">
+        <Image
+          class="size-full object-cover object-center"
+          src={image.src}
+          alt={image.alt}
+          width={1000}
+          height={500}
+          loading="eager"
+        />
+      </div>
+    </div>
+  </div>
+
+  {
+    meetupLink && (
+      <div class="flex justify-between my-16 lg:mx-8 sm:mx-16 ">
+        <SocialShare
+          url={meetupLink}
+          text={title}
+          class="lg:ml-24 sm:ml-4 mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600"
+        />
+        <Button
+          variant="primary"
+          class="sm:mb-0 lg:mr-16 sm:mr-0 "
+          href={meetupLink}
+          target="_blank"
+        >
+          {t["rsvp"]}
+        </Button>
+      </div>
+    )
+  }
+</div>

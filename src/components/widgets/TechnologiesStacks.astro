@@ -1,0 +1,33 @@
+---
+import Technologies from "./Technologies.astro";
+
+interface Props {
+  t: Record<string, string>;
+}
+
+const { t } = Astro.props;
+
+const icons = [
+  "devicon:homebrew",
+  "devicon:reactnative-wordmark",
+  "devicon:arduino-wordmark",
+  "devicon:raspberrypi",
+  "devicon:realm",
+  "devicon:kotlin",
+  "devicon:flutter",
+  "devicon:apple",
+  "devicon:ruby",
+  "devicon:android",
+  "devicon:firebase",
+  "devicon:supabase",
+  "devicon:ionic-wordmark",
+  "devicon:capacitor-wordmark",
+];
+---
+
+<Technologies
+  title={t["technologies.title"]}
+  subtitle={t["technologies.subtitle"]}
+  classes={{ container: "max-w-6xl" }}
+  icons={icons}
+/>

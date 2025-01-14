@@ -1,0 +1,85 @@
+---
+import Image from "@/components/Image.astro";
+
+const appStoreImg = "~/assets/images/app-store.png";
+const appStoreDownloadLink = "https://github.com/onwidget/astrowind";
+
+const googlePlayImg = "~/assets/images/google-play.png";
+const googlePlayDownloadLink = "https://github.com/onwidget/astrowind";
+
+export async function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "de" } }];
+}
+
+interface Props {
+  t: Record<string, string>;
+  lang: string;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="relative not-prose">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="pointer-events-none"></div>
+    <div>
+      <div class="text-center md:pb-16 max-w-5xl mx-auto">
+        {
+          (
+            <h1
+              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              set:html={t["home.title"]}
+            />
+          )
+        }
+        <div class="max-w-3xl mx-auto">
+          {
+            (
+              <p
+                class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+                set:html={t["home.subtitle"]}
+              />
+            )
+          }
+          <!-- {
+            actions && (
+              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+                {Array.isArray(actions) ? (
+                  actions.map((action) => (
+                    <div class="flex w-full sm:w-auto">
+                      <Button {...(action || {})} class="w-full sm:mb-0" />
+                    </div>
+                  ))
+                ) : (
+                  <Fragment set:html={actions} />
+                )}
+              </div>
+            )
+          } -->
+        </div>
+      </div>
+      <div
+        class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+      >
+        {
+          (
+            <div class="relative m-auto max-w-5xl">
+              <Image
+                class="mx-auto rounded-md w-full"
+                widths={[400, 768, 1024, 2040]}
+                sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                loading="eager"
+                width={1024}
+                height={576}
+                alt={t["home.title"]}
+                src={
+                  "https://images.unsplash.com/photo-1597423498219-04418210827d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80"
+                }
+              />
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
