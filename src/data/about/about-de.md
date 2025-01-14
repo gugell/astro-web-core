@@ -1,24 +1,24 @@
-## Who We Are DE
+## Wer wir sind
 
-Mobileheads Austria is a community-driven platform dedicated to advancing mobile development. From native app development to hybrid frameworks, we focus on empowering developers to share knowledge, collaborate, and build amazing experiences.
+Mobileheads Austria ist eine gemeinschaftsgetriebene Plattform, die sich der Weiterentwicklung von Mobile Development widmet. Von der nativen App-Entwicklung bis hin zu hybriden Frameworks konzentrieren wir uns darauf, Entwickler zu befähigen, Wissen zu teilen, zusammenzuarbeiten und großartige Erlebnisse zu schaffen.
 
-## Our Mission 🎯
+## Unsere Mission 🎯
 
-- **Educate**: Provide learning opportunities through meetups, talks, and workshops.
-- **Innovate**: Highlight cutting-edge technologies and trends.
-- **Connect**: Bring together developers, designers, and tech enthusiasts to create a vibrant network.
-- **Mentor**: Support fellow developers in their journey by sharing knowledge, experience, and guidance.
-- **Grow**: Build a thriving community that fosters learning, collaboration, and growth.
+- **Bildung**: Lernmöglichkeiten durch Meetups, Vorträge und Workshops bieten.
+- **Innovation**: Spitzentechnologien und Trends hervorheben.
+- **Vernetzung**: Entwickler, Designer und Technikbegeisterte zusammenbringen, um ein lebendiges Netzwerk zu schaffen.
+- **Mentoring**: Andere Entwickler auf ihrem Weg unterstützen, indem wir Wissen, Erfahrungen und Orientierung teilen.
+- **Wachstum**: Eine florierende Community aufbauen, die Lernen, Zusammenarbeit und Wachstum fördert.
 
-## What We Offer 📚
+## Was wir bieten 📚
 
-- **Meetups**: Regular gatherings to discuss mobile development topics.
-- **Workshops**: Hands-on sessions to deepen your technical expertise.
-- **Networking**: Connect with like-minded individuals and industry leaders.
-- **Mentorship**: Opportunities to learn from experienced developers and contribute back to the community.
+- **Meetups**: Regelmäßige Treffen, um über Themen der Mobile-Entwicklung zu diskutieren.
+- **Workshops**: Praktische Sitzungen, um dein technisches Wissen zu vertiefen.
+- **Netzwerken**: Verknüpfe dich mit Gleichgesinnten und Branchenführern.
+- **Mentoring**: Möglichkeiten, von erfahrenen Entwicklern zu lernen und der Community etwas zurückzugeben.
 
-## Join Us 🚀
+## Mach mit 🚀
 
-Whether you’re a seasoned developer or just getting started, Mobileheads Austria has something for everyone. Let’s build the future of mobile technology together!
+Egal, ob du ein erfahrener Entwickler bist oder gerade erst anfängst, Mobileheads Austria bietet für jeden etwas. Lasst uns gemeinsam die Zukunft der mobilen Technologie gestalten!
 
-Stay connected and check out our [latest events and announcements](/events).
+Bleib in Verbindung und schau dir unsere [aktuellen Veranstaltungen und Ankündigungen](/events) an.

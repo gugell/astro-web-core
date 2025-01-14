@@ -1,13 +1,12 @@
 ---
 import { getCollection } from "astro:content";
-import BlogLatestPosts from "./BlogLatestPosts.astro";
 import GetInvolved from "./GetInvolved.astro";
-import MeetupFAQ from "./MeetupFAQ.astro";
-import SponsorsComponent from "./SponsorsComponent.astro";
 import TeamComponent from "./TeamComponent.astro";
 import TechnologiesStacks from "./TechnologiesStacks.astro";
-import LandingHero from "./home/LandingHero.astro";
 import UpcomingEventComponent from "./home/UpcomingEventComponent.astro";
+
+import { Content as AboutMarkdownDE } from "@/data/about/about-community-de.md";
+import { Content as AboutMarkdown } from "@/data/about/about-community.md";
 
 const events = await getCollection("events");
 events.sort((a, b) => +b.data.pubDate - +a.data.pubDate);
@@ -24,28 +23,39 @@ const { t, lang } = Astro.props;
 <div class="-my-20">
   <UpcomingEventComponent t={t} data={upcomingEvent} reverse />
 
-  <LandingHero t={t} lang={lang} />
+  <div
+    class="prose prose-lg dark:prose-invert dark:prose-headings:text-slate-300 prose-md -mt-24"
+  >
+    <h1
+      class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+      set:html={t["home.about"]}
+    />
+
+    {lang === "de" ? <AboutMarkdownDE /> : <AboutMarkdown />}
+  </div>
+
+  <!-- <LandingHero t={t} lang={lang} /> -->
 
   <TeamComponent t={t} />
 
-  <SponsorsComponent t={t} />
+  <div class="my-4">
+    <TechnologiesStacks t={t} />
+  </div>
 
   <div class="my-4">
     <GetInvolved t={t} />
-
-    <div class="my-4">
-      <TechnologiesStacks t={t} />
-    </div>
-    <MeetupFAQ t={t} lang={lang} />
-    <BlogLatestPosts
-      id="blog"
-      title="Explore my insightful articles on my blog"
-      linkText="View All Posts"
-      information={`Dive into a realm of design wisdom and creative inspiration, where you'll find invaluable insights, practical tips, and captivating narratives that elevate and enrich your creative journey.`}
-    >
-      <Fragment slot="bg">
-        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-      </Fragment>
-    </BlogLatestPosts>
   </div>
+  <!-- 
+  <MeetupFAQ t={t} lang={lang} /> -->
+
+  <!-- <BlogLatestPosts
+    id="blog"
+    title="Explore my insightful articles on my blog"
+    linkText="View All Posts"
+    information={`Dive into a realm of design wisdom and creative inspiration, where you'll find invaluable insights, practical tips, and captivating narratives that elevate and enrich your creative journey.`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts> -->
 </div>

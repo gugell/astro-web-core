@@ -3,7 +3,6 @@ import type { Brands as Props } from "@/types";
 import { Icon } from "astro-icon/components";
 
 import Image from "@/components/Image.astro";
-import Headline from "@/components/ui/Headline.astro";
 const {
   title = "",
   subtitle = "",
@@ -23,8 +22,15 @@ const {
   containerClass={`max-w-6xl mx-auto ${classes?.container ?? ""}`}
   bg={bg}
 > -->
-<div class="max-w-6xl mx-auto">
-  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+<div class="max-w-6xl">
+  <div class="text-left my-4">
+    <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+      {title}
+    </h1>
+    <p class="mt-4 text-xl text-gray-500">
+      {subtitle}
+    </p>
+  </div>
 
   <div class="flex flex-wrap justify-center gap-x-6 sm:gap-x-12 lg:gap-x-24">
     {

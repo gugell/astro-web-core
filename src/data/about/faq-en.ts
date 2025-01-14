@@ -12,7 +12,7 @@ export default [
   {
     title: "When and where are the meetups held?",
     description:
-      "Meetups are held monthly, either in person or virtually. Check our website or email us at info@mobileheads.org for the latest details.",
+      "Meetups are held monthly, either in person or virtually. Check our website or email us at ask.mobileheads@gmail.com for the latest details.",
   },
   {
     title: "Is there a fee to attend?",
@@ -37,7 +37,7 @@ export default [
   {
     title: "How do I sign up to give a talk?",
     description:
-      "Send us an email at info@mobileheads.org with your idea, and we’ll guide you through the next steps.",
+      "Send us an email at ask.mobileheads@gmail.com with your idea, and we’ll guide you through the next steps.",
   },
   {
     title: "Do I need to prepare slides?",
@@ -62,6 +62,6 @@ export default [
   {
     title: "Can I sponsor a meetup?",
     description:
-      "Yes! If you’re interested in sponsoring an event, please reach out to us at info@mobileheads.org.",
+      "Yes! If you’re interested in sponsoring an event, please reach out to us at ask.mobileheads@gmail.com",
   },
 ];

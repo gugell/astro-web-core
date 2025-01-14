@@ -20,7 +20,8 @@ const { title, description, image, pubDate, location, talks, meetupLink } =
 ---
 
 <div class="py-16 sm:py-20">
-  <header class="mb-8 md:mb-4 max-w-3xl sm:mx-32">
+  <!-- sm:mx-32 md:mx-8 lg:mx-32 -->
+  <header class="mb-8 md:mb-4 max-w-3xl">
     <h1
       class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
       set:html={t["upcomingEvents.title"]}
@@ -33,7 +34,7 @@ const { title, description, image, pubDate, location, talks, meetupLink } =
   </header>
 
   <div
-    class="mx-auto grid max-w-7xl gap-10 px-4 sm:gap-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8"
+    class="grid mx-4 max-w-7xl gap-10 sm:gap-16 lg:grid-cols-2 items-center lg:px-8"
   >
     <div class={cn(reverse ? "lg:order-2" : "lg:order-1")}>
       <h2
@@ -114,9 +115,10 @@ const { title, description, image, pubDate, location, talks, meetupLink } =
     meetupLink && (
       <div class="flex justify-between my-16 lg:mx-8 sm:mx-16 ">
         <SocialShare
+          t={t}
           url={meetupLink}
           text={title}
-          class="lg:ml-24 sm:ml-4 mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600"
+          class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600"
         />
         <Button
           variant="primary"

@@ -1,7 +1,7 @@
 ---
 title: "Mobileheads meetup #1"
 pubDate: January 22 2024, 7PM
-versionNumber: "2.0"
+versionNumber: "#1"
 description: "Join us for the kickoff event of Mobile Austria, a new community for mobile developers and tech enthusiasts! Let’s gather, connect, and share ideas about the exciting world of mobile development."
 image:
   src:  "../../assets/images/events/meetup_1.png"
@@ -20,32 +20,20 @@ talks:
   - title: "Future and present of hybrid technologies"
     description: "Short overview of pros and cons of using hybrid technologies"
 ---
+Join us for the **kickoff event** of **Mobileheads Austria**, a brand-new community for mobile developers and tech enthusiasts! Let’s gather, connect, and share ideas about the exciting world of mobile development.
 
-## Introducing Nebulous 2.0
+### What to Expect 📋
 
-![Nebulous 2.0 Release](https://images.unsplash.com/photo-1579762593175-20226054cad0)
+- 🎙 **Introductory Session**: Learn about the vision and how we can grow as a community.
+- 🌟 **Lightning Talks**: A few short talks from local mobile experts covering trends, tools, and challenges in iOS, Android, Flutter, and more.
+- ☕️ **Networking**: Meet fellow mobile developers, exchange ideas, and build connections over drinks and snacks.
 
-Greetings, Nebulous users! We're excited to bring you the latest updates in our [ever-evolving tech ecosystem](#). In this release, we're introducing some exciting new features and squashing a few pesky bugs. Let's dive in!
+### Event Details 📅
 
-### 🍿 New Features & Enhancements
+- **Date**: 22/01/2025
+- **Time**: 7PM - 10PM
+- **Location**: Sentry.io - Rothschildplatz 3, 1020, Wien
 
-- **NebulaSync v2.0:** We're thrilled to introduce NebulaSync 2.0, our revamped file synchronization tool. It now offers blazing-fast sync speeds, improved reliability, and enhanced cross-device compatibility.
-- **Enhanced NebulaProtect:** NebulaProtect, our comprehensive security suite, has received a major update. Enjoy advanced threat detection, and real-time monitoring.
-- **NebulaConnect for Teams:** Collaborate effortlessly with NebulaConnect for Teams. This powerful feature allows seamless integration with your favorite project management tools, enabling you to manage tasks, share documents, and track progress in real-time.
+Whether you're an experienced developer or just starting your mobile journey, this is the perfect opportunity to connect with like-minded people and help shape the future of Mobileheads Austria!
 
-### 🐞 Bug Fixes
-
-- Resolved occasional crashing issues when using NebulaSync.
-- Fixed a bug causing data corruption in rare cases during file transfers.
-- Improved compatibility with older devices to ensure a seamless experience for all users.
-- Enhanced error handling and reporting for a smoother user experience.
-
-### 👀 Coming Soon
-
-We can't spill all the beans just yet, but we're thrilled to give you a sneak peek of what's coming in the next Nebulous release:
-
-- **NebulaWallet:** A secure and user-friendly cryptocurrency wallet integrated directly into Nebulous for seamless digital asset management.
-- **NebulaConnect Mobile:** Take your collaboration to the next level with our upcoming mobile app, enabling you to work on the go.
-- **NebulaLabs:** Our developer tools and API enhancements, providing you with even more customization options and possibilities.
-
-If you have any suggestions or encounter any issues, don't hesitate to reach out to our support team. Together, we'll continue to make Nebulous the ultimate tech solution for you.
+[Register now](https://www.meetup.com/mobileheads-austria/events/305028285/) to secure your spot!

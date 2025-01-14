@@ -7,24 +7,24 @@ export interface SiteConfig {
   name: string;
   site?: string;
   base?: string;
+  contactEmail: string;
   trailingSlash?: boolean;
   googleSiteVerificationId?: string;
   ui?: UIConfig;
 }
 
 export interface UIConfig {
-    theme: string;
-  }
-  
+  theme: string;
+}
 
 export interface AnalyticsConfig {
-    vendors: {
-      googleAnalytics: {
-        id?: string;
-        partytown?: boolean;
-      };
+  vendors: {
+    googleAnalytics: {
+      id?: string;
+      partytown?: boolean;
     };
-  }
+  };
+}
 
 export interface MetaDataConfig extends Omit<MetaData, "title"> {
   title?: {
@@ -46,7 +46,7 @@ export const getSite = () => {
     site: undefined,
     base: "/",
     trailingSlash: false,
-
+    contactEmail: "",
     googleSiteVerificationId: "",
   };
 
@@ -54,17 +54,17 @@ export const getSite = () => {
 };
 
 const getAnalytics = () => {
-    const _default = {
-      vendors: {
-        googleAnalytics: {
-          id: undefined,
-          partytown: true,
-        },
+  const _default = {
+    vendors: {
+      googleAnalytics: {
+        id: undefined,
+        partytown: true,
       },
-    };
-  
-    return merge({}, _default, config?.analytics ?? {}) as AnalyticsConfig;
+    },
   };
+
+  return merge({}, _default, config?.analytics ?? {}) as AnalyticsConfig;
+};
 
 export const siteConfig = getSite();
 

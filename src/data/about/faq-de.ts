@@ -12,7 +12,7 @@ export default [
   {
     title: "Wann und wo finden die Meetups statt?",
     description:
-      "Meetups finden monatlich statt, entweder vor Ort oder virtuell. Schau auf unserer Website vorbei oder schreibe uns an info@mobileheads.org, um die neuesten Details zu erfahren.",
+      "Meetups finden monatlich statt, entweder vor Ort oder virtuell. Schau auf unserer Website vorbei oder schreibe uns an ask.mobileheads@gmail.com, um die neuesten Details zu erfahren.",
   },
   {
     title: "Gibt es eine Teilnahmegebühr?",
@@ -37,7 +37,7 @@ export default [
   {
     title: "Wie melde ich mich an, um einen Vortrag zu halten?",
     description:
-      "Schicke uns eine E-Mail an info@mobileheads.org mit deiner Idee, und wir führen dich durch die nächsten Schritte.",
+      "Schicke uns eine E-Mail an ask.mobileheads@gmail.com mit deiner Idee, und wir führen dich durch die nächsten Schritte.",
   },
   {
     title: "Muss ich Folien vorbereiten?",
@@ -62,6 +62,6 @@ export default [
   {
     title: "Kann ich ein Meetup sponsern?",
     description:
-      "Ja! Wenn du Interesse hast, ein Event zu sponsern, kontaktiere uns unter info@mobileheads.org.",
+      "Ja! Wenn du Interesse hast, ein Event zu sponsern, kontaktiere uns unter ask.mobileheads@gmail.com.",
   },
 ];

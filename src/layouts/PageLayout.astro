@@ -1,11 +1,11 @@
 ---
 import Header from "@/components/Header.astro";
-import Footer from "@/components/widgets/Footer.astro";
 import Layout from "@/layouts/Layout.astro";
 
 import { footerData, headerData } from "@/navigation";
 
 import type { MetaData } from "@/types";
+import FooterComponent from "@components/widgets/FooterComponent.astro";
 import { defaultLang, languages, tr } from "@utils/i18n";
 import { getCurrentLang, getPathWithoutLang } from "@utils/navigation";
 
@@ -31,7 +31,7 @@ const { metadata, title } = Astro.props;
   </main>
 
   <slot name="footer">
-    <Footer
+    <FooterComponent
       links={[]}
       secondaryLinks={footerData.secondaryLinks}
       socialLinks={footerData.socialLinks}

@@ -18,7 +18,7 @@ const permalink = getPermalink(post.permalink, "post");
     post.id && (
       <a href={permalink} target="_self">
         <img
-          src={post.image ? `${post.image}?w=800&q=80` : ""}
+          src={post.thumbnail?.toString() ?? ""}
           alt="cover"
           class="w-full aspect-video rounded-lg self-auto object-cover"
         />

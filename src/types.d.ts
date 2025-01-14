@@ -185,6 +185,8 @@ export interface Post {
   /**  */
   image?: ImageMetadata | string;
 
+  thumbnail?: ImageMetadata | string;
+
   /**  */
   category?: Taxonomy;
   /**  */
