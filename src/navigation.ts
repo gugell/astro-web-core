@@ -3,11 +3,11 @@ import { getAsset, getBlogPermalink, getPermalink } from "./utils/permalinks";
 export const headerData = {
   navItems: [
     // { key: "nav.home", href: "" },
-    { key: "nav.blog", href: "articles" },
+    { key: "nav.events", href: "events" },
     { key: "nav.faq", href: "faq" },
     { key: "nav.cfp", href: "cfp" },
-    { key: "nav.events", href: "events" },
     { key: "nav.about", href: "about" },
+    { key: "nav.blog", href: "articles" },
   ],
   links: [
     {

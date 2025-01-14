@@ -43,6 +43,6 @@ Wir interessieren uns für alle Themen rund um Mobile, einschließlich:
 - Füge eine **kurze Biografie** und **Kontaktdaten** hinzu.
 - Erwähne deine **bevorzugte Vortragsdauer** (15-30 Minuten).
 
-Bereit zu inspirieren? Reiche deinen Vorschlag über unser [Einreichungsformular](https://example.com/cfp-form) ein.
+Bereit zu inspirieren? Reiche deinen Vorschlag über unser [Einreichungsformular](https://forms.gle/iYeStCNtTMb78KVb8) ein.
 
 Wir können es kaum erwarten, deine Ideen zu hören und gemeinsam die mobile Entwicklung zu feiern!
