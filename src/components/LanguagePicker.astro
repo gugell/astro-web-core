@@ -8,52 +8,13 @@ interface Props {
 }
 
 const { currentLang, currentPath } = Astro.props;
-
-// const currentPath = Astro.url.pathname;
-// const currentLocale = getCurrentLang(currentPath, languages, defaultLang);
-// const pathSegments = currentPath.split('/').filter(Boolean);
-// const currentPathWithLanguage = createLocalizedPath(currentLocale, currentPath);
-// const { currentLocale } = Astro;
 ---
 
-<!-- <div class="language-picker flex space-x-2">
-  {Object.entries(languages).map(([lang, label]) => (
-    <a 
-      href={createLocalizedPath(lang, currentPath)}
-      class={`px-2 py-1 rounded transition-colors  ${
-        currentLang === lang ? 'text-gray-900' : 'hover:text-primary '
-      }`}
-    >
-      {label}
-    </a>
-  ))}
-</div> --><!-- <div class="relative inline-block text-left">
-  <select
-    onchange="window.location.pathname = window.location.pathname.replace(/^\/[^\/]*/, '/' + this.value)"
-    class="block w-full rounded-md text-gray-900 border-gray-300 py-2 pl-3 pr-10 text-base focus:border-primary focus:outline-none focus:ring-primary sm:text-sm dark:bg-gray-800"
-    value={currentLocale}
-  >
-    {Object.entries(languages).map(([lang, label]) => (
-      <option value={lang}>{label}</option>
-    ))}
-  </select>
-</div> --><!-- <div class="language-picker">
-  <ul>
-
-    {Object.entries(languages).map(([lang, label]) => (
-      <li class={label === currentLang ? 'active' : ''}>
-        <a href={createLocalizedPath(lang, currentPath)}>
-          {label}
-        </a>
-      </li>
-    ))}
-  </ul>
-</div> -->
 <div class="language-picker">
-  <select 
-      class="block w-full"
-      onchange="window.location.href=this.value"
-  value={currentLang}
+  <select
+    class="block w-full"
+    onchange="window.location.href=this.value"
+    value={currentLang}
   >
     {
       languages.map((lang) => (
@@ -69,8 +30,7 @@ const { currentLang, currentPath } = Astro.props;
 </div>
 
 <style>
-
-.language-picker select {
+  .language-picker select {
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;

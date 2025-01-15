@@ -62,8 +62,6 @@ const getNormalizedPost = async (
 ): Promise<Post> => {
   const { id, data } = post;
   const result = await render(post);
-  // const { Content, remarkPluginFrontmatter } = await render(post);
-  // const renderContent = await render(post);
 
   const {
     publishDate: rawPublishDate = new Date(),

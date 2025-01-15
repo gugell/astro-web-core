@@ -4,26 +4,6 @@ import typographyPlugin from "@tailwindcss/typography";
 import defaultTheme from "tailwindcss/defaultTheme";
 import plugin from "tailwindcss/plugin";
 
-// export default {
-//   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-//   theme: {
-//     extend: {
-//       colors: {
-//         primary: '#2563eb',
-//         secondary: '#4f46e5',
-//         dark: '#111827',
-//       },
-//       fontFamily: {
-//         sans: ['Inter', 'system-ui', 'sans-serif'],
-//         mono: ['Fira Code', 'monospace'],
-//       },
-//     },
-//   },
-//   plugins: [
-//     require('@tailwindcss/typography'),
-//   ],
-// }
-
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,json,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
@@ -37,39 +17,6 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        // background: {
-        //   DEFAULT: "hsl(var(--background))",
-        //   200: "hsl(var(--background-200))",
-        // },
-        // foreground: "hsl(var(--foreground))",
-        // primary: {
-        //   DEFAULT: "hsl(var(--primary))",
-        //   foreground: "hsl(var(--primary-foreground))",
-        // },
-        // secondary: {
-        //   DEFAULT: "hsl(var(--secondary))",
-        //   foreground: "hsl(var(--secondary-foreground))",
-        // },
-        // destructive: {
-        //   DEFAULT: "hsl(var(--destructive))",
-        //   foreground: "hsl(var(--destructive-foreground))",
-        // },
-        // muted: {
-        //   DEFAULT: "hsl(var(--muted))",
-        //   foreground: "hsl(var(--muted-foreground))",
-        // },
-        // accent: {
-        //   DEFAULT: "hsla(var(--accent))",
-        //   foreground: "hsl(var(--accent-foreground))",
-        // },
-        // popover: {
-        //   DEFAULT: "hsl(var(--popover))",
-        //   foreground: "hsl(var(--popover-foreground))",
-        // },
-        // card: {
-        //   DEFAULT: "hsl(var(--card))",
-        //   foreground: "hsl(var(--card-foreground))",
-        // },
       },
       fontFamily: {
         sans: [

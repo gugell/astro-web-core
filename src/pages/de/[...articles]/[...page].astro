@@ -3,7 +3,6 @@ import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
 import Headline from "@/components/blog/Headline.astro";
 import Pagination from "@/components/blog/Pagination.astro";
-// import PostTags from "@/components/blog/Tags.astro";
 
 import PageLayout from "@/layouts/PageLayout.astro";
 import { blogListRobots } from "@/utils/blog";
@@ -26,9 +25,6 @@ const currentPage = page?.currentPage ?? 1;
 const currentPath = Astro.url.pathname;
 const lang = getCurrentLang(currentPath, languages, defaultLang);
 const t = tr[lang as keyof typeof tr];
-
-// const allCategories = await findCategories();
-// const allTags = await findTags();
 
 const metadata = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ""}`,
@@ -54,9 +50,5 @@ const metadata = {
     </div>
 
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    <!--
-      <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
-      <PostTags tags={allTags}  title="Search by Tags:" />
-    -->
   </section>
 </PageLayout>

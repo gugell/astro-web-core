@@ -10,7 +10,7 @@ site:
 analytics:
   vendors:
     googleAnalytics:
-      id: "G-YX4KC3PNHB"
+      id: "G-SQMQNLHRPT"
 
 ui:
   theme: "light" # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
