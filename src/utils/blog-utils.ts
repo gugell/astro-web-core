@@ -71,6 +71,7 @@ const getNormalizedPost = async (
     title,
     excerpt,
     image,
+    thumbnail,
     tags: rawTags = [],
     category: rawCategory,
     author,
@@ -110,6 +111,8 @@ const getNormalizedPost = async (
     title: title,
     excerpt: excerpt,
     image: image,
+
+    thumbnail: thumbnail,
 
     category: category,
     tags: tags,

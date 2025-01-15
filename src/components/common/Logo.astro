@@ -1,9 +1,20 @@
 ---
+import Image from "@/components/Image.astro";
 import { siteConfig } from "@utils/config";
+
+import LogoLarge from "@/assets/mobileheads_logo_large.png";
 ---
 
 <span
   class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
 >
-  🚀 {siteConfig?.name}
+  <Image
+    src={LogoLarge}
+    class="max-h-64"
+    width={384}
+    height={128}
+    widths={[400, 768, 1024, 2040]}
+    sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+    alt={siteConfig.name}
+  />
 </span>

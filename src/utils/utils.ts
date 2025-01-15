@@ -1,4 +1,7 @@
 import { i18n } from "@utils/i18n";
+import { type ClassValue, clsx } from "clsx";
+import { format } from "date-fns";
+import { twMerge } from "tailwind-merge";
 
 const formatter: Intl.DateTimeFormat =
   i18n?.dateFormatter ||
@@ -8,6 +11,18 @@ const formatter: Intl.DateTimeFormat =
     day: "numeric",
     timeZone: "UTC",
   });
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+export function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export function formatDate(date: Date) {
+  return format(date, "LLL dd, y");
+}
 
 export const getFormattedDate = (date: Date): string =>
   date ? formatter.format(date) : "";

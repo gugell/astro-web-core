@@ -3,6 +3,7 @@ site:
   site: "https://iauti.tech"
   base: "/"
   trailingSlash: false
+  contactEmail: "ask.mobileheads@gmail.com"
 
   googleSiteVerificationId: null #aaa-bbb-ccc
 
@@ -12,4 +13,4 @@ analytics:
       id: "G-YX4KC3PNHB"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: "system" # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

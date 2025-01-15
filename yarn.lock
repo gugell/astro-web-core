@@ -624,10 +624,24 @@
   resolved "https://registry.yarnpkg.com/@fontsource-variable/inter/-/inter-5.1.1.tgz#55997abca7c1da57036a79bab4160ff35bab8f0a"
   integrity sha512-OpXFTmiH6tHkYijMvQTycFKBLK4X+SRV6tet1m4YOUH7SzIIlMqDja+ocDtiCA72UthBH/vF+3ZtlMr2rN/wIw==
 
+"@iconify-json/devicon@^1.2.11":
+  version "1.2.11"
+  resolved "https://registry.yarnpkg.com/@iconify-json/devicon/-/devicon-1.2.11.tgz#993a90a2a36e463ce338d3affb9aba44555601d8"
+  integrity sha512-siDWSFqmPKOYiMvgixqsZ/0rbUXae1M7gF14vefBtFuKXJkTvr4WPzbv1ARc7rqQlkU8XZPyH1edCXO4uToTyw==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/flat-color-icons@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@iconify-json/flat-color-icons/-/flat-color-icons-1.2.1.tgz#4db790f3df1304994c1a6354bbd7abfb6909dd73"
   integrity sha512-iv1NQai4ThVJf5RGB2UBY/EYG4P5KpdnRTUM1hqLweD6OmWxZUyNJkqLzwns6/t+VBYM0H5gS/ckSWyxxEIYmQ==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/lucide@^1.2.23":
+  version "1.2.23"
+  resolved "https://registry.yarnpkg.com/@iconify-json/lucide/-/lucide-1.2.23.tgz#11dba9b982177292a8ebefcc37daacc47b31b5d1"
+  integrity sha512-UpwgsET4bCT/hj9JhPIzQjyjP81qT6CKbrqtFfj5VdBwKz/HgyU6iL5GIpk2QtjBnUkY85LR2LshKOWZubD2XQ==
   dependencies:
     "@iconify/types" "*"
 

@@ -31,6 +31,6 @@ layout: '@/layouts/MarkdownLayout.astro'
 
 **Deadline for submissions: March 15, 2025**
 
-Submit your proposals via [this form](https://example.com/cfp-form).
+Submit your proposals via [this form](https://forms.gle/iYeStCNtTMb78KVb8).
 
 We can’t wait to hear your ideas and feature your talks at Mobileheads Austria!

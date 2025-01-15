@@ -9,28 +9,16 @@ interface Props {
 const { t } = Astro.props;
 ---
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <div class="text-center">
+<div class="max-w-7xl py-8">
+  <div class="text-left">
     <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl">
       {t["team.title"]}
     </h1>
     <p class="mt-4 text-xl text-gray-500">
-      Building a community of mobile developers, designers, and enthusiasts to
-      shape the future of mobile technology.
+      {t["team.subtitle"]}
     </p>
   </div>
 
-  <div class="mt-12 text-center">
-    <h2 class="text-3xl font-semibold text-gray-900">Our Philosophy</h2>
-    <p class="mt-4 text-lg text-gray-500">
-      We believe in the power of collaboration and knowledge sharing. At
-      Mobileheads Austria, we are committed to fostering a supportive
-      environment where developers and designers can grow, innovate, and build
-      meaningful connections. Our focus is on creating opportunities for
-      learning, mentorship, and hands-on experience to empower our members and
-      shape the future of mobile development.
-    </p>
-  </div>
   <!-- 
   <div class="mt-16">
     <h2 class="text-3xl font-semibold text-gray-900 text-center">
@@ -84,18 +72,4 @@ const { t } = Astro.props;
 
 -->
   <Team t={t} teamMembers={teamMembers} />
-
-  <div class="mt-16 text-center">
-    <h2 class="text-3xl font-semibold text-gray-900">Get Involved</h2>
-    <p class="mt-4 text-lg text-gray-500">
-      Whether you're looking to attend an event, share your expertise, or
-      support the community, we’d love to have you involved.
-    </p>
-    <p class="mt-4 text-lg text-gray-500">
-      For more information, contact us at <a
-        href="mailto:info@mobileheads.at"
-        class="text-blue-500 hover:text-blue-700">info@mobileheads.at</a
-      >.
-    </p>
-  </div>
 </div>

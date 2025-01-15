@@ -1,0 +1,26 @@
+---
+import { siteConfig } from "@utils/config";
+
+interface Props {
+  t: Record<string, string>;
+}
+
+const { t } = Astro.props;
+---
+
+<div class="text-left mb-24">
+  <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+    {t["getInvolved.title"]}
+  </h1>
+  <p class="mt-4 text-xl text-gray-500">
+    {t["getInvolved.subtitle"]}
+  </p>
+
+  <p class="mt-4 text-lg text-gray-500">
+    {t["getInvolved.contact"]}
+    <a
+      href="mailto:ask.mobileheads@gmail.com"
+      class="text-blue-500 hover:text-blue-700">{siteConfig.contactEmail}</a
+    >
+  </p>
+</div>

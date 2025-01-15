@@ -43,6 +43,6 @@ We’re interested in all things mobile, including:
 - Include a **short bio** and **contact details**.
 - Mention your **preferred session length** (15-30 minutes).
 
-Ready to inspire? Submit your proposal via our [submission form](https://example.com/cfp-form).
+Ready to inspire? Submit your proposal via our [submission form](https://forms.gle/iYeStCNtTMb78KVb8).
 
 We can’t wait to hear your ideas and celebrate mobile development together!

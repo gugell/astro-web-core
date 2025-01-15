@@ -1,0 +1,16 @@
+---
+import MeetupFAQ from "@components/widgets/MeetupFAQ.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import { defaultLang, languages, tr } from "@utils/i18n";
+import { getCurrentLang } from "@utils/navigation";
+
+const currentPath = Astro.url.pathname;
+const lang = getCurrentLang(currentPath, languages, defaultLang);
+const t = tr[lang as keyof typeof tr];
+---
+
+<PageLayout title={t["team.title"]}>
+  <div class="my-4">
+    <MeetupFAQ t={t} lang={lang} />
+  </div>
+</PageLayout>

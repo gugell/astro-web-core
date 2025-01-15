@@ -56,6 +56,7 @@ const postCollection = defineCollection({
     title: z.string(),
     excerpt: z.string().optional(),
     image: z.string().optional(),
+    thumbnail: z.string().optional(),
 
     category: z.string().optional(),
     slug: z.string().optional(),
@@ -66,6 +67,46 @@ const postCollection = defineCollection({
   }),
 });
 
+const talks = z.object({
+  title: z.string(),
+  description: z.string(),
+  versionNumber: z.string().optional(),
+  image: z
+    .object({
+      src: z.string(),
+      alt: z.string(),
+    })
+    .optional(),
+  slug: z.string().optional(),
+  author: z.string().optional(),
+  // Transform string to Date object
+  date: z.date({ coerce: true }).optional(),
+});
+
+const events = defineCollection({
+  loader: glob({ pattern: ["*.md", "*.mdx"], base: "src/data/events" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      versionNumber: z.string(),
+      image: z.object({
+        src: image(),
+        alt: z.string(),
+      }),
+      slug: z.string().optional(),
+      location: z.string().optional(),
+      // Transform string to Date object
+      pubDate: z.string(),
+
+      meetupLink: z.string().optional(),
+      // .or(z.date())
+      // .transform((val) => new Date(val)),
+      talks: z.array(talks).optional(),
+    }),
+});
+
 export const collections = {
   post: postCollection,
+  events: events,
 };

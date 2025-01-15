@@ -3,12 +3,14 @@ import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
 import Headline from "@/components/blog/Headline.astro";
 import Pagination from "@/components/blog/Pagination.astro";
-import Layout from "@/layouts/PageLayout.astro";
 // import PostTags from "@/components/blog/Tags.astro";
 
+import PageLayout from "@/layouts/PageLayout.astro";
 import { blogListRobots } from "@/utils/blog";
 import ArticleCard from "@components/blog/ArticleCard.astro";
 import { getStaticPathsBlogList } from "@utils/blog-utils";
+import { defaultLang, languages, tr } from "@utils/i18n";
+import { getCurrentLang } from "@utils/navigation";
 
 export const prerender = true;
 
@@ -19,7 +21,11 @@ export const getStaticPaths = (async ({ paginate }) => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props as Props;
-const currentPage = page.currentPage ?? 1;
+const currentPage = page?.currentPage ?? 1;
+
+const currentPath = Astro.url.pathname;
+const lang = getCurrentLang(currentPath, languages, defaultLang);
+const t = tr[lang as keyof typeof tr];
 
 // const allCategories = await findCategories();
 // const allTags = await findTags();
@@ -36,15 +42,13 @@ const metadata = {
 };
 ---
 
-<Layout metadata={metadata}>
+<PageLayout metadata={metadata}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <Headline
       subtitle="A staticallys generated blog example with news, tutorials, resources and other interesting content related to AstroWind"
     >
-      The Blog
+      {t["blog.title"]}
     </Headline>
-    <!-- <BlogList posts={page.data} /> -->
-
     <div
       class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-y-10 gap-x-0 sm:gap-x-10 max-w-screen-2xl mx-auto px-4 sm:px-8"
     >
@@ -57,4 +61,4 @@ const metadata = {
       <PostTags tags={allTags}  title="Search by Tags:" />
     -->
   </section>
-</Layout>
+</PageLayout>

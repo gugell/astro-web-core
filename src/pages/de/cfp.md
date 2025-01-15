@@ -4,33 +4,45 @@ layout: '@/layouts/MarkdownLayout.astro'
 
 # Call for Papers 📣
 
-**Mobileheads Austria** is calling all mobile developers, designers, and tech enthusiasts to submit their talk proposals for our upcoming meetups and events. Whether you have insights into cutting-edge technologies, best practices, or compelling case studies, we want to hear from you!
+## Bereit zu inspirieren? 🚀
 
-## Why Speak at Mobileheads?
+Wir freuen uns, dass du dein Wissen bei **MobileHeads Austria** teilen möchtest!
 
-- **Share Your Knowledge:** Inspire others with your experiences and insights.
-- **Grow Your Network:** Connect with industry professionals and expand your reach.
-- **Boost Your Profile:** Enhance your visibility as an expert in mobile development.
+Vorträge sind das Highlight unserer Meetups, und wir begrüßen eine Vielzahl von Formaten und Themen:
 
-## Topics of Interest 📋
+- **Etwas bahnbrechendes entwickelt?** Stelle dein neues Framework, deine Bibliothek oder App vor.
+- **Lernen durch Praxis?** Teile Lektionen aus deinem ersten Projekt oder der Integration einer Bibliothek.
+- **Tech-Entdecker?** Tauche in experimentelle Features oder mutige Ideen ein und präsentiere deine Erkenntnisse.
+- **Nebenprojekt-Schöpfer?** Zeig uns deine spannenden Wochenendprojekte!
 
-- Native iOS and Android Development
-- Flutter, React Native, and Hybrid Technologies
-- Mobile UI/UX Design Trends
-- State Management Strategies
-- Testing and CI/CD Pipelines
-- Performance Optimization
-- Security in Mobile Apps
-- Emerging Technologies like AR/VR and AI
+### Warum bei MobileHeads sprechen?
 
-## Submission Guidelines ✍️
+- **Lehren und Inspirieren:** Teile dein Wissen und inspiriere andere.
+- **Netzwerken:** Erweitere dein Netzwerk mit anderen Entwicklern und Branchenexperten.
+- **Glänzen:** Präsentiere deine Fähigkeiten und positioniere dich als Experte für mobile Entwicklung.
 
-- Provide a **title** and **abstract** of your talk.
-- Include a short **bio** and your **contact information**.
-- Specify your **preferred session length** (20-30 minutes).
+### Details zum Vortrag 🎤
 
-**Deadline for submissions: March 15, 2025**
+- **Vortragsdauer:** Vorträge dauern bis zu **30 Minuten**.
+- **Neue Sprecher willkommen!** Erstmalige Präsentierende sind herzlich eingeladen, sich zu bewerben. 🌟
 
-Submit your proposals via [this form](https://example.com/cfp-form).
+### Was wir suchen
 
-We can’t wait to hear your ideas and feature your talks at Mobileheads Austria!
+Wir interessieren uns für alle Themen rund um Mobile, einschließlich:
+
+- Native und hybride App-Entwicklung (Flutter, React Native, Swift, Kotlin, usw.)
+- Designsysteme und Mobile UI/UX-Trends
+- Testing, CI/CD und Performance-Optimierung
+- Sicherheit und Datenschutz Best Practices
+- AR/VR, KI und aufkommende Technologien
+- Open Source-Tools und Beiträge
+
+### So bewirbst du dich ✍️
+
+- Gib einen **Titel** und eine **kurze Beschreibung** deines Vortrags an.
+- Füge eine **kurze Biografie** und **Kontaktdaten** hinzu.
+- Erwähne deine **bevorzugte Vortragsdauer** (15-30 Minuten).
+
+Bereit zu inspirieren? Reiche deinen Vorschlag über unser [Einreichungsformular](https://forms.gle/iYeStCNtTMb78KVb8) ein.
+
+Wir können es kaum erwarten, deine Ideen zu hören und gemeinsam die mobile Entwicklung zu feiern!

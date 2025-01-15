@@ -1,0 +1,80 @@
+---
+import SocialShare from "@components/common/SocialShare.astro";
+import Button from "@components/ui/Button.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import { defaultLang, languages, tr } from "@utils/i18n";
+import { getCurrentLang } from "@utils/navigation";
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+
+const currentPath = Astro.url.pathname;
+const lang = getCurrentLang(currentPath, languages, defaultLang);
+const t = tr[lang as keyof typeof tr];
+
+const events = await getCollection("events");
+events.sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+---
+
+<PageLayout title={t["team.title"]}>
+  <ul class="pt-6">
+    {
+      events.map((event) => (
+        <li class="flex flex-col max-md:gap-y-4 md:flex-row w-full">
+          <div class="md:basis-32 lg:basis-56 shrink-0 grow-0">
+            <div class="md:sticky md:top-24 w-auto mr-6">
+              <a class="flex flex-col gap-y-2 pb-4">
+                <div class="inline-flex items-center border px-2.5 py-0.5 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 w-14 h-7 justify-center text-md bg_release_version text-white border-transparent bg-primary text-primary-foreground hover:bg-primary/80 rounded-lg">
+                  {event.data.versionNumber}
+                </div>
+                <span class="text-sm text-muted-foreground">
+                  {event.data.pubDate}
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="prose dark:prose-invert prose-img:rounded-3xl max-w-none w-full pb-24">
+            <div class="prose prose-lg dark:prose-invert dark:prose-headings:text-slate-300 prose-md">
+              <h1
+                class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+                set:html={event.data.title}
+              />
+            </div>
+            <div class="relative aspect-video">
+              <Image
+                class="size-full object-cover object-center"
+                src={event.data.image.src}
+                alt={event.data.image.alt}
+                width={1000}
+                height={500}
+                loading="eager"
+              />
+            </div>
+
+            {event.data.meetupLink && (
+              <div class="flex justify-between my-16 lg:mx-8 sm:mx-16 ">
+                <SocialShare
+                  t={t}
+                  url={event.data.meetupLink}
+                  text={event.data.title}
+                  class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600"
+                />
+                <Button
+                  variant="primary"
+                  class="sm:mb-0 lg:mr-16 sm:mr-0 "
+                  href={event.data.meetupLink}
+                  target="_blank"
+                >
+                  {t["rsvp"]}
+                </Button>
+              </div>
+            )}
+
+            {render(event).then(({ Content }) => (
+              <Content />
+            ))}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</PageLayout>

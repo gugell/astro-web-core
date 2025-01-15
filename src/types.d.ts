@@ -185,6 +185,8 @@ export interface Post {
   /**  */
   image?: ImageMetadata | string;
 
+  thumbnail?: ImageMetadata | string;
+
   /**  */
   category?: Taxonomy;
   /**  */
@@ -207,6 +209,6 @@ export interface Post {
 }
 
 export interface ImageAttrs {
-  src: string;
+  src: string | ImageMetadata;
   alt: string;
 }
