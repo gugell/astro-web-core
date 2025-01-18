@@ -1,13 +1,13 @@
 metadata:
   title:
-    default: IAUTI LABS
+    default: Mobileheads Austria
     template: "%s — Mobileheads Austria"
   description: "\U0001F680 Whether you’re starting from scratch, or levelling-up an existing product suite, we bring experience and pragmatism that moves the needle on real business goals."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: IAUTI LABS
+    site_name: MobileHeads Austria
     images:
       - url: "~/assets/images/hero.png"
         width: 1200

@@ -1,6 +1,6 @@
 site:
   name: MobileHeads Austria
-  site: "https://iauti.tech"
+  site: "https://mobileheads.at"
   base: "/"
   trailingSlash: false
   contactEmail: "ask.mobileheads@gmail.com"

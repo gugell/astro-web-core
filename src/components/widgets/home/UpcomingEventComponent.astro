@@ -41,7 +41,7 @@ const { title, description, image, pubDate, location, talks, meetupLink } =
       >
         {title}
       </h2>
-      <p class="mt-6 text-lg text-muted">
+      <p class="mt-6 text-lg text-muted dark:text-muted">
         {description}
       </p>
       <div class="mt-6 space-y-4 leading-7">
@@ -75,7 +75,7 @@ const { title, description, image, pubDate, location, talks, meetupLink } =
               talks.map((item) => (
                 <li class="decoration-style-dashed">
                   <span>
-                    <p class="text-sm text-muted-foreground text-black">
+                    <p class="text-sm text-muted-foreground text-black dark:text-black">
                       {item.title}
                     </p>
                     <p class="text-sm text-muted">{item.description}</p>
