@@ -14,7 +14,7 @@ Welcome to **MobileHeads**, where mobile engineers share their stories, ideas, a
 - **Working on a fun weekend project?** We’d love to hear about it.
 - **Found a useful trick?** Show us how it works.
 
-Our talks are short and simple, lasting up to 30 minutes. First-time speakers are always welcome. If you have questions, email us at [ask.mobileheads@gmail.com](mailto:ask.mobileheads@gmail.com).
+Our talks are short and simple, lasting up to 30 minutes. First-time speakers are always welcome. If you have questions, email us at [ask@mobileheads.at](mailto:ask@mobileheads.at).
 
 ---
 

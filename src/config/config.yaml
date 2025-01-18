@@ -3,7 +3,7 @@ site:
   site: "https://mobileheads.at"
   base: "/"
   trailingSlash: false
-  contactEmail: "ask.mobileheads@gmail.com"
+  contactEmail: "ask@mobileheads.at"
 
   googleSiteVerificationId: null #aaa-bbb-ccc
 
