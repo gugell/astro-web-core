@@ -8,6 +8,7 @@ import type { MetaData as MetaDataType } from "@/types";
 import Analytics from "@components/common/Analytics.astro";
 import BasicScripts from "@components/common/BasicScripts.astro";
 import CustomStyles from "@components/common/CustomStyles.astro";
+import ThemeManager from "@components/common/ThemeManager.astro";
 import { defaultLang, i18n, languages, tr } from "@utils/i18n";
 import { getCurrentLang } from "@utils/navigation";
 
@@ -29,6 +30,7 @@ const t = tr[lang as keyof typeof tr];
   <head>
     <CommonMeta />
     <Favicons />
+    <ThemeManager defaultTheme="light" />
     <CustomStyles />
     <Metadata {...metadata} title={title} />
     <Analytics />
