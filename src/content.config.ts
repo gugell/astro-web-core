@@ -97,11 +97,12 @@ const events = defineCollection({
       slug: z.string().optional(),
       location: z.string().optional(),
       // Transform string to Date object
-      pubDate: z.string(),
+      pubDate: z
+        .string()
+        .or(z.date())
+        .transform((val) => new Date(val)),
 
       meetupLink: z.string().optional(),
-      // .or(z.date())
-      // .transform((val) => new Date(val)),
       talks: z.array(talks).optional(),
     }),
 });

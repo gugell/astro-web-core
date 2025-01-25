@@ -1,7 +1,7 @@
 ---
 import SocialShare from "@components/common/SocialShare.astro";
 import Button from "@components/ui/Button.astro";
-import { cn } from "@utils/utils";
+import { cn, formattedPubDate } from "@utils/utils";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
@@ -33,7 +33,7 @@ const { title, description, image, pubDate, location, talks, meetupLink } =
   </header>
 
   <div
-    class="grid mx-4 max-w-7xl gap-10 sm:gap-16 lg:grid-cols-2 items-center lg:px-8"
+    class="mt-8 grid mx-4 max-w-7xl gap-10 sm:gap-16 lg:grid-cols-2 items-center lg:px-8"
   >
     <div class={cn(reverse ? "lg:order-2" : "lg:order-1")}>
       <h2
@@ -53,7 +53,7 @@ const { title, description, image, pubDate, location, talks, meetupLink } =
                   name="lucide:calendar"
                   class="absolute left-0 top-1 size-5 stroke-purple-700"
                 />
-                <span>{pubDate}</span>
+                <span>{formattedPubDate(pubDate)}</span>
               </dt>
             </div>
           )

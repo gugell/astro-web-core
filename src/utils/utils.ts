@@ -12,6 +12,16 @@ const formatter: Intl.DateTimeFormat =
     timeZone: "UTC",
   });
 
+export function formattedPubDate(pubDate: Date) {
+  return pubDate.toLocaleDateString("en-AT", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  });
+}
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }

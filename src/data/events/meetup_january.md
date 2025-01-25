@@ -1,11 +1,11 @@
 ---
 title: "Mobileheads meetup #1"
-pubDate: January 22 2024, 7PM
+pubDate: 19:00 22 January 2025
 versionNumber: "#1"
 description: "Join us for the kickoff event of Mobile Austria, a new community for mobile developers and tech enthusiasts! Let’s gather, connect, and share ideas about the exciting world of mobile development."
 image:
   src:  "../../assets/images/events/meetup_1.png"
-  alt: "The full Astro logo."
+  alt: "Mobileheads meetup #1"
 
 location: "Sentry office, Rothschildplatz 3/2/ab, 1020 Vienna"
 meetupLink: "https://www.meetup.com/mobileheads-austria/events/305028285/"

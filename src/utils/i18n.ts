@@ -72,6 +72,8 @@ export const tr = {
       "We are oriented around the following technologies:",
     "home.nextMeetup": "Next Meetup",
     "blog.title": "Blog",
+    "blog.subtitle":
+      "Curated articles, tutorials, resources, and insights from the community, all dedicated to mobile development and its latest trends.",
     "cfp.title": "Call for Papers",
     "upcomingEvents.title": "Upcoming Events",
     "upcomingEvents.subtitle": "Join us at the following events:",
@@ -125,6 +127,8 @@ export const tr = {
       "Wir orientieren uns an den folgenden Technologien:",
     "home.nextMeetup": "Nächstes Meetup",
     "blog.title": "Blog",
+    "blog.subtitle":
+      "Kuratierte Artikel, Tutorials, Ressourcen und Einblicke aus der Community – alles rund um Mobile Development und die neuesten Trends.",
     "cfp.title": "Call for Papers",
     "upcomingEvents.title": "Bevorstehende Veranstaltungen",
     "upcomingEvents.subtitle": "Sei bei den folgenden Events dabei:",
