@@ -2,7 +2,7 @@ metadata:
   title:
     default: Mobileheads Austria
     template: "%s — Mobileheads Austria"
-  description: "\U0001F680 Whether you’re starting from scratch, or levelling-up an existing product suite, we bring experience and pragmatism that moves the needle on real business goals."
+  description: "Mobileheads Austria is Austria’s leading mobile development community. We celebrate all aspects of mobile technology, from native app development to hybrid solutions and beyond!\nOur community thrives on collaboration and inclusivity. Whether you’re using Swift, Kotlin, Flutter, React Native, or experimenting with your own innovative tools—Mobileheads is the perfect platform to share, learn, and grow"
   robots:
     index: true
     follow: true
