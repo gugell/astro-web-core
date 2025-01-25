@@ -1,10 +1,11 @@
----
-import { analyticsConfig } from '@utils/config';
-import { GoogleAnalytics } from '@astrolib/analytics';
----
+<script async src={"https://www.googletagmanager.com/gtag/js?id=G-SQMQNLHRPT"}
+></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
 
-{
-  analyticsConfig?.vendors?.googleAnalytics?.id ? (
-    <GoogleAnalytics id={String(analyticsConfig.vendors.googleAnalytics.id)} partytown={analyticsConfig?.vendors?.googleAnalytics?.partytown} />
-  ) : null
-}
+  gtag("config", "G-SQMQNLHRPT");
+</script>

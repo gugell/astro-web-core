@@ -28,12 +28,12 @@ const t = tr[lang as keyof typeof tr];
 <!doctype html>
 <html lang={language} dir={textDirection}>
   <head>
+    <Analytics />
     <CommonMeta />
     <Favicons />
     <ThemeManager defaultTheme="light" />
     <CustomStyles />
     <Metadata {...metadata} title={title} />
-    <Analytics />
   </head>
   <body class="min-h-screen flex flex-col">
     <slot />
